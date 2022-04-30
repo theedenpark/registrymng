@@ -1,0 +1,385 @@
+/* width */
+::-webkit-scrollbar {
+    width: 5px;
+  }
+  
+  /* Track */
+  ::-webkit-scrollbar-track {
+    background: #fff; 
+  }
+   
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: rgb(199, 199, 199); 
+    border-radius: 5px;
+  }
+  
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: #555; 
+  }
+
+body
+{
+    background: rgb(250, 250, 250);
+}
+
+.naviBar
+{
+    background: #fff;
+    z-index: 200;
+}
+
+#userButton
+{
+    background: #eef;
+    cursor: pointer;
+}
+
+.toggleTheme
+{
+    background: #eef;
+}
+
+a, a:hover
+{
+    color: inherit;
+}
+
+.nav__list ul li
+{
+    border-radius: 50px;
+}
+.nav__list ul li:hover
+{
+    background: linear-gradient(-90deg, #fff, #eef);
+}
+
+.active
+{
+    color: rgb(126, 126, 255) !important;
+    background: linear-gradient(-90deg, #fff, #eef);
+    border-radius: 50px;
+}
+
+label
+{
+    color: gray;
+    margin-bottom: 7px;
+}
+
+.loginFields
+{
+    width: 100%;
+    border: 1px solid #ccc;
+    padding: 10px;
+    border-radius: 7px;
+    outline: none;
+}
+
+.side__bar
+{
+    /* width: 17vw; */
+    background: #fff;
+    position: fixed;
+    left: 0; top: 0;
+    height: 100vh;
+    width: 18vw;
+    z-index: 1000;
+}
+
+.goBack
+{
+    display: none;
+}
+
+.nav__logo img
+{
+    height: 60px;
+}
+
+.nav__list
+{
+    overflow-y: auto;
+    height: 86%;
+}
+
+.nav__list ul
+{
+    font-size: 1rem;
+    padding: 0px 30px;
+}
+
+.nav__list ul li
+{
+    list-style: none;
+    font-size: 0.8rem;
+    padding: 7px 10px;
+    margin: 2px 0px;
+    color: rgb(102, 102, 102);
+}
+
+.myFormOverflow
+{
+    overflow-y: auto;
+    max-height: 65vh;
+    margin-bottom: 30px;
+}
+
+.formFields
+{
+    width: 100%;
+    border: 1px solid #ccc;
+    padding: 6px 10px;
+    border-radius: 7px;
+    outline: none;
+}
+
+.searchAddress, .searchAgent, .searchDraftmen, .searchProp, .searchBanks
+{
+    width: 100%;
+    outline: none;
+    border: 0px;
+}
+
+.hidden-store
+{
+    display: none;
+}
+
+.villageBlock:hover, .draftmenBlock:hover, .agentBlock:hover, .propBlock:hover, .bankBlock:hover
+{
+    background-color: rgb(246, 246, 255);
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.modalBg
+{
+    position: fixed;
+    top: 0; left: 0;
+    height: 100%; width: 100%;
+    background: rgba(0,0,0,0.25);
+    z-index: 2000;
+}
+
+.myModal
+{
+    position: fixed;
+    right: 0; top: 0;
+    height: 100%;
+    width: 35vw;
+    background-color: #fff;
+    z-index: 2000;
+}
+
+.propDetails
+{
+    height: 94%;
+    overflow-y: auto;
+}
+
+#myRow:hover
+{
+    background-color: rgb(247, 247, 255);
+    transition: 0.5s ease;
+}
+
+table.dataTable.no-footer
+{
+    border: none !important;
+}
+
+.dataTables_length, .myDataTable_filter label, .dataTables_info, #myDataTable_paginate
+{
+    font-size: 11px !important;
+}
+
+.dataTables_filter label input
+{
+    font-size: 11px;
+    padding: 0;
+    outline: none;
+}
+
+thead tr
+{
+    font-weight: 400 !important;
+}
+
+.paginate_button 
+{
+    border-radius: 50px !important;
+    background-color: #eef;
+}
+
+.current
+{
+    background-color: rgb(187, 187, 255) !important;
+}
+
+select
+{
+    outline: none;
+}
+
+#totalArea, #areaUnit, #remainingArea, #areaUnit1, #areaUnit2
+{
+    background-color: rgb(243, 243, 243);
+}
+
+.count_no
+{
+    font-size: xx-large;
+    font-weight: 800;
+}
+
+#view_link
+{
+    font-size: 11px;
+    position: relative;
+    top: -3px;
+}
+
+.dashCards .col-md-4 .card, .dashCards .col-md-6 .card
+{
+    background: linear-gradient(-90deg, #fff, #eef);
+}
+
+.dashCards .col-md-4 .card .d-flex div:nth-child(1)
+{
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.dashCards .col-md-4 .card .d-flex div:nth-child(1) a
+{
+    font-weight: 400;
+    text-transform: capitalize;
+    letter-spacing: 0.5px;
+}
+
+.dashCards .col-md-12
+{
+    margin-top: 25px;
+}
+
+#user_icon
+{
+    height: 25px;
+    width: 25px;
+}
+
+.backupOptCont
+{
+    position: fixed;
+    top:0; left: 0;
+    z-index: 2000;
+    height: 100%;
+    width: 100%;
+    background: rgba(255, 255, 255, 0.5);
+    backdrop-filter: blur(4px);
+}
+
+.optContainer
+{
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.optContainer h1
+{
+    font-weight: 300;
+    font-size: 2.6em;
+    line-height: 50px;
+}
+
+.backUpBtn
+{
+    height: 40px;
+    width: 270px;
+    border: 1px solid #000;
+    background: #fff;
+}
+.backUpBtn:hover
+{
+    background: #000;
+    color: #eee;
+}
+.closeUpBtn
+{
+    height: 40px;
+    width: 270px;
+    border: 1px solid #dc143c;
+    color: #dc143c;
+    background: #fff;
+}
+.closeUpBtn:hover
+{
+    background: #dc143c;
+    color: #eee;
+}
+
+#toolbar_btn
+{
+    font-size: 15px;
+    background: #fff;
+    border: 1px solid rgb(215, 215, 253);
+    font-weight: 1000;
+    color:rgb(82, 82, 82);
+}
+
+#toolbar_btn img
+{
+    height: 25px;
+}
+
+.allMails
+{
+    background: rgb(253, 253, 253);
+    border: 1px solid #eee;
+}
+
+.mailId:hover
+{
+    background: #eee;
+}
+
+#messageMail, #cke_messageMail
+{
+    height: 300px;
+    width: 100%;
+    border: 1px solid #eee;
+    border-radius: 4px;
+    resize: none;
+    outline: none;
+    font-size: 11px;
+    color: rgba(0,0,0,0.85);
+}
+#cke_1_contents
+{
+    height: 255px !important;
+}
+#cke_1_top
+{
+    background: #fff;
+}
+
+.listPropertiesContainer
+{
+    width: 81.7vw;
+    position: fixed;
+    right: 0; bottom: 0;
+    max-height: 38vh;
+    background: #fff;
+    z-index: 1000;
+    /* box-shadow: 0px 1px 8px 1px rgba(0,0,0,0.15); */
+}
+
+.listPropertiesContainer .lstedProperties
+{
+    height: 90%;
+    overflow-y: auto;
+}
