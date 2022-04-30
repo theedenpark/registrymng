@@ -144,7 +144,7 @@ label
 
 .hidden-store
 {
-    display: none;
+    display: none !important;
 }
 
 .villageBlock:hover, .draftmenBlock:hover, .agentBlock:hover, .propBlock:hover, .bankBlock:hover

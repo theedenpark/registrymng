@@ -1,9 +1,9 @@
 <div class="d-flex justify-content-end my-2 px-2">
     <div class="text-end col-md-2">
-        <input type="search" class="formFields py-2" placeholder="Search" style="font-size: 11px;">
+        <input type="search" class="formFields py-2" placeholder="Search" style="font-size: 11px;" id="filterProperty">
     </div>
 </div>
-<table class="table table-responsive table-sm" style="font-size: 12px;" id="myDataTable">
+<table class="table table-responsive table-sm" style="font-size: 12px;" id="my_Table">
     <thead>
         <tr class="bg-light">
             <th>Khet ID</th>
@@ -16,9 +16,9 @@
             <th class="text-center">Select</th>
         </tr>
     </thead>
-    <tbody id="myTable">
+    <tbody class="allAvailProps">
         @foreach($allProps as $prop)
-        <tr>
+        <tr class="thisProp">
             <td>
                 {{$prop->khet_id}}
             </td>
@@ -49,3 +49,12 @@
         @endforeach
     </tbody>
 </table>
+
+<script>
+    $('#filterProperty').keyup(function () {
+    var value = $(this).val().toLowerCase();
+    $("#my_Table tbody tr").filter(function() {
+        $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1);
+    });
+});
+</script>
