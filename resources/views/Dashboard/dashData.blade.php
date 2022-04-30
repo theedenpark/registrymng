@@ -30,7 +30,7 @@
                 <div class="d-flex justify-content-between">
                     <div>Total Purchase Value</div>
                     <div class="text-danger">
-                        <i class="fas fa-caret-up"></i>&nbsp;₹{{number_format($totalPurchaseValue)}}</div>
+                        <i class="fas fa-caret-up"></i>&nbsp;{{number_format($totalPurchaseValue)}} INR</div>
                 </div>
             </div>
         </div>
@@ -39,7 +39,7 @@
                 <div class="d-flex justify-content-between">
                     <div>Total Sold Value</div>
                     <div class="text-success">
-                        <i class="fas fa-caret-up"></i>&nbsp;₹{{number_format($totalSoldValue)}}</div>
+                        <i class="fas fa-caret-up"></i>&nbsp;{{number_format($totalSoldValue)}} INR</div>
                 </div>
             </div>
         </div>
