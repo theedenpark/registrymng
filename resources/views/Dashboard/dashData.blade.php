@@ -20,7 +20,7 @@
             <div class="card py-2 px-3 rounded-2 shadow-1" style="font-size: 11px;">
                 <div class="d-flex justify-content-between">
                     <div>Total Sold Area</div>
-                    <div class="text-danger">
+                    <div class="text-info">
                         <i class="fas fa-caret-up"></i>&nbsp;{{number_format($totalSoldArea)}} Sq.ft.</div>
                 </div>
             </div>
@@ -29,7 +29,7 @@
             <div class="card py-2 px-3 rounded-2 shadow-1" style="font-size: 11px;">
                 <div class="d-flex justify-content-between">
                     <div>Total Purchase Value</div>
-                    <div class="text-danger">
+                    <div class="text-info">
                         <i class="fas fa-caret-up"></i>&nbsp;{{number_format($totalPurchaseValue)}}&nbsp;INR</div>
                 </div>
             </div>
