@@ -25,6 +25,10 @@
         <link rel="stylesheet" href="/css/style.css">
     @endif
     <link rel="stylesheet" href="/css/responsive.css">
+
+    <link rel="stylesheet" href="/css/calculator.css">
+
+    <script src="https://kit.fontawesome.com/4e57ae290c.js" crossorigin="anonymous"></script>
     
     <!-- JQuery  -->
     <script src="/js/jquery.js"></script>
@@ -54,4 +58,5 @@
 <script src="/js/formSubmit.js"></script>
 <script src="/js/dependentList.js"></script>
 <script type="text/javascript" src="/js/script.js"></script>
+<script type="text/javascript" src="/js/calculator.js"></script>
 </html>

@@ -53,10 +53,17 @@
     z-index: 900;
 }
 
+.shortcutCard:hover
+{
+    transition: 0.2s;
+    transform: scale(1.05);
+    box-shadow: 0px 1px 12px 0px rgba(0,0,0,0.15) !important;
+}
+
 @media only screen and (max-width: 900px) {
     .loginSidebar, .side__bar
     {
-        display: none !important;
+        display: none;
     }
     .loginForm
     {

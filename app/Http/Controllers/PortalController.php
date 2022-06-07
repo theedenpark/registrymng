@@ -40,11 +40,17 @@ class PortalController extends Controller
             $revVill = DB::table('revenue_village')->count();
 
             $units = DB::table('units')->count();
+            $allUnits = DB::table('units')->where('unit_value', '!=', 1)->get();
 
             $totalPurchasedArea = DB::table('khet')->sum('khet_area');
+
             $totalSoldArea = DB::table('sold_khet')->sum('sold_area');
+
             $totalPurchaseValue = DB::table('properties')->sum('total_amount');
+
             $totalSoldValue = DB::table('sold_properties')->sum('s_total_amount');
+
+            $totalKhet = DB::table('khet')->count();
 
             return view('Dashboard.dashData', [
                 'addedProps' => $addedProps,
@@ -61,10 +67,12 @@ class PortalController extends Controller
                 'propType' => $propType,
                 'revVill' => $revVill,
                 'units' => $units,
+                'allUnits' => $allUnits,
                 'totalPurchasedArea' => $totalPurchasedArea,
                 'totalSoldArea' => $totalSoldArea,
                 'totalPurchaseValue' => $totalPurchaseValue,
                 'totalSoldValue' => $totalSoldValue,
+                'totalKhet' => $totalKhet,
             ]);
         }
         else
@@ -112,7 +120,7 @@ class PortalController extends Controller
 
     public function addNewProperty(Request $req)
     {
-        
+        return $req;
         $path = "reg/purchased";
         $idProof = $req->file('reg_file');
         if($idProof == "")
@@ -130,11 +138,18 @@ class PortalController extends Controller
         $khata_no = $req->khata_no;
         $khet_no = $req->khet_no;
         $khet_area = $req->khet_area;
+        // $madhya = $req->madhya;
         $seller_id = implode(', ', $req->seller_id);
         $witness_id = implode(', ', $req->witness_id);
         $pay_mode = implode(', ', $req->pay_mode);
         $pay_mode_amount = implode(', ', $req->pay_mode_amount);
         $transaction_id = implode(', ', $req->transaction_id);
+
+        if($req->has('madhya')){
+            $madhya = 1;
+        }else{
+            $madhya = 0;
+        }
 
         foreach($khet_no as $key=>$insert)
         {
@@ -143,6 +158,7 @@ class PortalController extends Controller
                 'khata_no' => $khata_no[$key],
                 'khet_no' => $khet_no[$key],
                 'khet_area' => $khet_area[$key],
+                'madhya' => $madhya[$key],
                 'p_reg_no' => $req->reg_no
             ];
             DB::table('khet')->insert($dataset);
@@ -553,6 +569,40 @@ class PortalController extends Controller
             ->where('prop_id', $id)
             ->update([
                 'reg_file' => $reg_file
+            ]);
+        if($q)
+        {
+            return redirect()->back()->with('message', 'Uploaded Successfully.');
+        }
+        else
+        {
+            return redirect()->back()->with('message', 'Oops! Error Occured.');
+        }
+    }
+
+    public function uploadoft(Request $req)
+    {
+        $id = $req->khet_id;
+        $path = "Aggrement/143";
+        $idProof = $req->file('reg_file');
+        if($idProof == "")
+        {
+            $reg_file = 0;
+        }
+        else
+        {
+            $extensionFS = $idProof->getClientOriginalName();
+            $reg_file = $req->long_lat.$extensionFS;
+            $reg_file = $idProof->move($path, $reg_file);
+        }
+
+        $newPropType = $req->new_prop_type;
+
+        $q = DB::table('khet')
+            ->where('khet_id', $id)
+            ->update([
+                'oft' => $reg_file,
+                'new_property_type' => $newPropType
             ]);
         if($q)
         {

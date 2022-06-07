@@ -372,7 +372,7 @@
                         <th>Khet no</th>
                         <th>Sold Area</th>
                         <th>Total Amount</th>
-                        <th class="text-center">Registry</th>
+                        <th>Registry</th>
                         <th class="text-center">View</th>
                         <th class="text-center">Mail</th>
                     </tr>
@@ -388,26 +388,32 @@
                         <td>{{$prop->s_khet_no}}</td>
                         <td>{{$prop->sold_area}} sq.ft.</td>
                         <td>₹{{number_format($prop->s_total_amount)}}</td>
-                        <td class="text-center">
+                        <td>
+                            <!-- Upload Registry  -->
                             @if($prop->s_reg_file == 0) 
                             <!-- <span class="badge bg-danger" style="font-weight: 400 !important;">Not Available</span> -->
                             <button class="btn btn-light btn-floating shadow-0 btn-sm" data-mdb-toggle="modal"
                                 data-mdb-target="#exampleModal"
                                 onclick="uploadRegBtn(this, `{{$prop->sold_id}}`, `{{$prop->s_buyer_id}}`)">
-                                <i class="fa-solid fa-arrow-up-from-bracket text-danger"></i>
+                                <i class="fa-solid fa-arrow-up-from-bracket text-info"></i>
                             </button>
                             @else
                             <span class="badge bg-success" style="font-weight: 400 !important;">Available</span>
                             @endif
                         </td>
+
                         <td class="text-center">
+                            <!-- View Sold  -->
                             <button class="btn btn-light btn-floating shadow-0 p-0 btn-sm"
                                 onclick="viewSoldPropDetails(`{{$prop->sold_id}}`)">
-                                <i class="fas fa-eye p-0" style="font-size: 13px;"></i>
+                                <i class="fas fa-eye text-dark"></i>
                             </button>
+
                         </td>
+
                         <td class="text-center">
-                            <button class="btn btn-light btn-floating shadow-0 p-0 btn-sm" id="sendMailBtn"
+                            <!-- Send Mail  -->
+                            <button class="btn btn-info btn-floating shadow-0 p-0 btn-sm" id="sendMailBtn"
                                 onclick="getDetailsForMail(`{{$prop->sold_id}}`)">
                                 <i class="fa-solid fa-paper-plane"></i>
                             </button>

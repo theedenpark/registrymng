@@ -43,38 +43,46 @@
                         <table class="table table-responsive table-striped table-bordered">
                             <thead>
                                 <tr>
-                                    <td>Basra No.</td>
-                                    <td>Khata No.</td>
-                                    <td>Khet No.</td>
-                                    <td>Area</td>
-                                    <td>Unit</td>
-                                    <td>In Sq.ft.</td>
+                                    <td>बसरा न.</td>
+                                    <td>खाता न.</td>
+                                    <td>खेत न.</td>
+                                    <td>मᵒ (मध्य)</td>
+                                    <td>क्षेत्र</td>
+                                    <td>इकाई</td>
+                                    <td>वर्ग फुट . में</td>
                                     <td class="text-center"><i class="fas fa-times"></i></td>
                                 </tr>
                             </thead>
                             <tbody id="khetContainer">
                                 <tr class="areaRow">
                                     <td>
-                                        <input type="number" class="formFields" min="0" name="basra_no[]" id="basra_no" required>
+                                        <input type="number" class="formFields" min="0" name="basra_no[]" id="basra_no">
                                     </td>
                                     <td>
-                                        <input name="khata_no[]" type="number" value="" class="formFields" required />
+                                        <input name="khata_no[]" type="number" value="" class="formFields" />
                                     </td>
                                     <td>
-                                        <input name="khet_no[]" type="number" value="" class="formFields" required />
+                                        <input name="khet_no[]" type="number" value="" class="formFields" />
+                                    </td>
+                                    <td class="text-center" width="100px">
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" name="madhya[]" value="1" id="flexCheckDefault" onclick="$(this).siblings().prop('checked', false);" />Yes<br>
+
+                                            <input class="form-check-input" type="checkbox" name="madhya[]" value="0" id="flexCheckDefault1" checked onclick="$(this).siblings().prop('checked', false);" />No
+                                        </div>
                                     </td>
                                     <td>
-                                        <input required type="number" value="" class="formFields khetArea" autocomplete="off" />
+                                        <input type="number" value="" class="formFields khetArea" autocomplete="off" />
                                     </td>
                                     <td>
-                                        <select class="form-select" required id="changeUnit">
+                                        <select class="form-select" id="changeUnit">
                                             @foreach($allUnits as $unit)
                                             <option value="{{$unit->unit_value}}">{{$unit->unit_name}}</option>
                                             @endforeach
                                         </select>
                                     </td>
                                     <td>
-                                        <input type="number" class="formFields" name="khet_area[]" readonly value="00.00" required style="background: #eee;" id="valueInSqft">
+                                        <input type="number" class="formFields" name="khet_area[]" readonly value="00.00" style="background: #eee;" id="valueInSqft">
                                     </td>
                                     <td class="text-center">
                                         <button type="button" class="btn btn-danger btn-floating shadow-none remove"><i class="fas fa-times"></i></button>
@@ -95,18 +103,18 @@
 
                     <div class="col-md-4 mb-3">
                         <label for="">Property Name</label>
-                        <input type="text" class="formFields" name="prop_name" required>
+                        <input type="text" class="formFields" name="prop_name">
                     </div>
                     <div class="col-md-4 mb-3">
                         <label for="">Property Location</label>
-                        <select name="prop_location" class="form-select" required>
+                        <select name="prop_location" class="form-select">
                             <option value="mountains">Mountains</option>
                             <option value="plains">Plains</option>
                         </select>
                     </div>
                     <div class="col-md-4 mb-3">
                         <label for="">Road Connectivity</label>
-                        <select name="road_conn" class="form-select" required>
+                        <select name="road_conn" class="form-select">
                             <option value="on road">On Road</option>
                             <option value="off road">Off Road</option>
                         </select>
@@ -115,10 +123,10 @@
                         <label for="" class="px-3">Property Area</label>
                         <div class="d-flex justify-content-between">
                             <div class="col-10 px-3">
-                                <input type="number" class="formFields" required id="areaVal">
+                                <input type="number" class="formFields" id="areaVal">
                             </div>
                             <div class="col-2">
-                                <select class="form-select" required id="changeUnit">
+                                <select class="form-select" id="changeUnit">
                                     @foreach($allUnits as $unit)
                                     <option value="{{$unit->unit_value}}">{{$unit->unit_name}}</option>
                                     @endforeach
@@ -128,7 +136,7 @@
                     </div>
                     <div class="col-md-3 mb-3">
                         <label for="">Value (in sq.ft.)</label>
-                        <input type="number" class="formFields" name="area_sqft" readonly value="00.00" required style="background: #eee;" id="valueInSqft">
+                        <input type="number" class="formFields" name="area_sqft" readonly value="00.00" style="background: #eee;" id="valueInSqft">
                     </div> -->
                     <div class="col-md-12 mb-3">
                         <label for="">Upload Registry (Only PDF)</label>
@@ -162,15 +170,15 @@
                         </div>
                         <div class="col-md-6 mb-3">
                             <label for="">PIN Code</label>
-                            <input type="number" class="formFields" name="pin" required>
+                            <input type="number" class="formFields" name="pin">
                         </div>
                         <div class="col-md-6 mb-3">
                             <label for="">Longitude/Latitude</label>
-                            <input type="text" class="formFields" name="long_lat" required>
+                            <input type="text" class="formFields" name="long_lat">
                         </div>
                         <div class="col-md-12 mb-3">
                             <label for="">Landmark</label>
-                            <input type="text" class="formFields" name="landmark" required>
+                            <input type="text" class="formFields" name="landmark">
                         </div>
                     </div>
                 <!-- End of Row  -->
@@ -180,7 +188,7 @@
                 <div class="row m-0 p-4">
                     <div class="col-md-12 mb-3">
                         <label for="">Property Account</label>
-                        <select name="prop_acc" class="form-select" required>
+                        <select name="prop_acc" class="form-select">
                             <option value="">Select Property Account</option>
                             @foreach($PropAcc as $user)
                             <option value="{{$user->username}}">{{$user->username}}</option>
@@ -198,7 +206,7 @@
                             <tbody id="sellerContainer">
                                 <tr>
                                     <td width="80%">
-                                        <select name="seller_id[]" class="form-select" required>
+                                        <select name="seller_id[]" class="form-select">
                                             <option value="">Select Seller</option>
                                             @foreach($Sellers as $seller)
                                             <option value="{{$seller->username}}">{{$seller->username}}</option>
@@ -233,7 +241,7 @@
                             <tbody id="witnessContainer">
                                 <tr>
                                     <td width="80%">
-                                        <select name="witness_id[]" class="form-select" required>
+                                        <select name="witness_id[]" class="form-select">
                                             <option value="">Select Witness</option>
                                             @foreach($Witnesses as $witness)
                                             <option value="{{$witness->username}}">{{$witness->username}}</option>
@@ -265,28 +273,28 @@
                 <div class="row m-0 p-4">
                     <div class="col-md-4 mb-3">
                         <label for="">Date of Registry</label>
-                        <input type="date" class="formFields" name="date_of_reg" required>
+                        <input type="date" class="formFields" name="date_of_reg">
                     </div>
                     <div class="col-md-4 mb-3">
                         <label for="">Registeration Number</label>
-                        <input type="text" class="formFields" name="reg_no" required>
+                        <input type="text" class="formFields" name="reg_no">
                     </div>
                     <div class="col-md-4 mb-3">
                         <label for="">Actual Value (₹)</label>
-                        <input type="number" class="formFields" name="actual_value" required>
+                        <input type="number" class="formFields" name="actual_value">
                     </div>
                     <div class="col-md-6 mb-3">
                         <label for="">Registered Value (₹)</label>
-                        <input type="number" class="formFields" name="reg_value" required>
+                        <input type="number" class="formFields" name="reg_value">
                     </div>
                     <div class="col-md-6 mb-3">
                         <label for="">Returned Rate/Amount (If registry get cancelled)</label>
                         <div class="d-flex justify-content-between">
                             <div class="col-8">
-                                <input type="number" class="formFields" name="return_rate" required>
+                                <input type="number" class="formFields" name="return_rate">
                             </div>
                             <div class="col-4 px-1">
-                                <select name="reg_val_unit" class="form-select" required>
+                                <select name="reg_val_unit" class="form-select">
                                     <option value="rate">Rate</option>
                                     <option value="amount">Amount</option>
                                 </select>
@@ -295,7 +303,7 @@
                     </div>
                     <div class="col-md-12 mb-3">
                         <label for="">Cancellation Terms</label>
-                        <textarea name="cancellation_terms" class="formFields" required></textarea>
+                        <textarea name="cancellation_terms" class="formFields"></textarea>
                     </div>
                 </div>
                 <!-- End of Row  -->
@@ -313,7 +321,7 @@
                                 </div>
                                 <div class="px-2" style="flex: 1;">
                                     <input type="text" name="agent_id" class="searchAgent" placeholder="Search Agent"
-                                        autocomplete="none" required>
+                                        autocomplete="none">
                                 </div>
                             </div>
                             <div class="agentList"
@@ -328,7 +336,7 @@
                     </div>
                     <div class="col-md-6 mb-3">
                         <label for="">Agent Expense (₹)</label>
-                        <input type="number" class="formFields" name="agent_exp" required>
+                        <input type="number" class="formFields" name="agent_exp">
                     </div>
 
                     <div class="col-md-6">
@@ -340,7 +348,7 @@
                                 </div>
                                 <div class="px-2" style="flex: 1;">
                                     <input name="draftmen_id" type="text" class="searchDraftmen"
-                                        placeholder="Search Draftmen" autocomplete="none" required>
+                                        placeholder="Search Draftmen" autocomplete="none">
                                 </div>
                             </div>
                             <div class="draftList"
@@ -355,32 +363,32 @@
                     </div>
                     <div class="col-md-6 mb-3">
                         <label for="">Draftmen/Leagal Expense (₹)</label>
-                        <input type="number" class="formFields" name="draftmen_exp" required>
+                        <input type="number" class="formFields" name="draftmen_exp">
                     </div>
 
                     <div class="col-md-3 mb-3">
                         <label for="">Stamp Duty</label>
-                        <input type="number" class="formFields" value="100" name="stamp_duty" required>
+                        <input type="number" class="formFields" value="100" name="stamp_duty">
                     </div>
 
                     <div class="col-md-3 mb-3">
                         <label for="">Registration Fees</label>
-                        <input type="number" class="formFields" value="100" name="reg_fees" required>
+                        <input type="number" class="formFields" value="100" name="reg_fees">
                     </div>
 
                     <div class="col-md-3 mb-3">
                         <label for="">No. of Electronic Files</label>
-                        <input type="number" class="formFields" value="1" name="electronic_files" required>
+                        <input type="number" class="formFields" value="1" name="electronic_files">
                     </div>
 
                     <div class="col-md-3 mb-3">
                         <label for="">Electronic File Processing Fees</label>
-                        <input type="number" class="formFields" value="1" name="electronic_files_fee" required>
+                        <input type="number" class="formFields" value="1" name="electronic_files_fee">
                     </div>
 
                     <div class="col-md-12 mb-3">
                         <label for="">Description</label>
-                        <textarea name="description" class="formFields" required></textarea>
+                        <textarea name="description" class="formFields"></textarea>
                     </div>
 
                 </div>
@@ -392,12 +400,12 @@
                 <div class="row m-0 p-4">
                     <div class="col-md-6 mb-3">
                         <label for="">Deposit Date</label>
-                        <input type="date" class="formFields" name="deposit_date" required>
+                        <input type="date" class="formFields" name="deposit_date">
                     </div>
 
                     <div class="col-md-6 mb-2">
                         <label for="">Total Amount</label>
-                        <input type="number" class="formFields" required placeholder="₹0.00" id="total"
+                        <input type="number" class="formFields" placeholder="₹0.00" id="total"
                             name="total_amount">
                     </div>
 
@@ -414,7 +422,7 @@
                             <tbody id="TextBoxContainer">
                                 <tr>
                                     <td>
-                                        <select name="pay_mode[]" class="formFields" required>
+                                        <select name="pay_mode[]" class="formFields">
                                             <option value="bank" selected>Bank</option>
                                             <option value="cash">Cash</option>
                                             <option value="cheque">Cheque</option>
@@ -423,10 +431,10 @@
                                     </td>
                                     <td>
                                         <input name="pay_mode_amount[]" type="number" value="" class="formFields"
-                                            required />
+                                         />
                                     </td>
                                     <td>
-                                        <input name="transaction_id[]" required type="text" value=""
+                                        <input name="transaction_id[]" type="text" value=""
                                             class="formFields" />
                                     </td>
                                     <td class="text-center">
@@ -449,7 +457,7 @@
 
                     <div class="col-md-12 mb-3">
                         <label for="">Payment Description</label>
-                        <textarea name="pay_desc" class="formFields" required></textarea>
+                        <textarea name="pay_desc" class="formFields"></textarea>
                     </div>
                 </div>
                 <!-- End of Row  -->
@@ -480,6 +488,7 @@
                         <th>Reg. Value</th>
                         <th>Date of Registry</th>
                         <th class="text-center">Registry</th>
+                        <th class="text-center">143</th>
                         <th class="text-center">View</th>
                     </tr>
                 </thead>
@@ -488,11 +497,15 @@
                     <tr class="text-capitalize" id="myRow">
                         <td>{{$prop->basra_no}}</td>
                         <td>{{$prop->khata_no}}</td>
-                        <td>{{$prop->khet_no}}</td>
+                        <td>{{$prop->khet_no}}
+                            @if($prop->madhya != 0)
+                            मᵒ
+                            @endif
+                        </td>
                         <td>{{$prop->khet_area}} sq.ft.</td>
                         <td>{{$prop->prop_name}}</td>
                         <td>{{$prop->seller_id}}</td>
-                        <td>₹{{number_format($prop->reg_value)}} /-</td>
+                        <td>₹{{number_format($prop->reg_value)}}</td>
                         <td>{{date('d-m-Y', strtotime($prop->date_of_reg))}}</td>
                         <td class="text-center">
                             @if($prop->reg_file == 0)
@@ -503,6 +516,21 @@
                                 </button>
                             @else
                                 <span class="badge bg-success" style="font-weight: 400 !important;">Available</span>
+                            @endif
+                        </td>
+                        <td class="text-center">
+                            @if($prop->new_property_type == 0)
+                                <button class="btn btn-light btn-floating shadow-0 btn-sm" data-mdb-toggle="modal"
+                                        data-mdb-target="#onefourthreeModal"
+                                        onclick="uploadOFT(this, `{{$prop->khet_id}}`, `{{$prop->khet_no}}`)">
+                                    <i class="fa-solid fa-arrow-up-from-bracket text-info"></i>
+                                </button>
+                            @else
+                                <a href="{{$prop->oft}}" target="_blank">
+                                    <button class="btn btn-light btn-floating shadow-0 p-0 btn-sm">
+                                        <i class="fas fa-file-invoice text-info"></i>
+                                    </button>
+                                </a>
                             @endif
                         </td>
                         <td class="text-center">
@@ -532,7 +560,6 @@
 </div>
 
 <!-- Upload Registry Modal  -->
-<!-- Modal -->
 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <!-- <div class="modal fade show" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" style="display: block;" aria-modal="true" role="dialog"> -->
     <div class="modal-dialog">
@@ -551,6 +578,47 @@
                     </div>
                     <div class="mb-3">
                         <label for="">Upload Registry (Only PDF)</label>
+                        <input type="file" class="form-control" name="reg_file" accept=".pdf">
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn text-capitalize shadow-1 btn-light"
+                        data-mdb-dismiss="modal">Close</button>
+                    <button type="submit" class="btn text-capitalize shadow-1 btn-primary" onclick="$(this).html('Uploading...');"><i
+                            class="fa-solid fa-arrow-up-from-bracket fa-sm"></i>&nbsp; Upload</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<!-- Upload 143 Aggrement  -->
+<div class="modal fade" id="onefourthreeModal" tabindex="-1" aria-labelledby="onefourthreeModalLabel" aria-hidden="true">
+    <!-- <div class="modal fade show" id="onefourthreeModal" tabindex="-1" aria-labelledby="onefourthreeModalLabel" style="display: block;" aria-modal="true" role="dialog"> -->
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="onefourthreeModalLabel">Update Property Type (143 Aggrement)</h5>
+                <button type="button" class="btn-close" data-mdb-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <form action="/uploadoft" method="post" class="p-0 m-0" enctype="multipart/form-data">
+                @csrf
+                <div class="modal-body">
+                    <div class="mb-3">
+                        <label for="">Khet No.</label>
+                        <input type="text" id="khet_id" name="khet_id" style="display: none;">
+                        <input type="text" class="formFields" disabled id="khet">
+                    </div>
+                    <div class="mb-3">
+                        <label for="">Property Type (Now)</label>
+                        <select name="new_prop_type" id="" class="form-select">
+                            @foreach($allPropTypes as $propType)
+                            <option value="{{$propType->property_type}}">{{$propType->property_type}}</option>
+                            @endforeach
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label for="">Upload 143 Aggrement (Only PDF)</label>
                         <input type="file" class="form-control" name="reg_file" accept=".pdf">
                     </div>
                 </div>
