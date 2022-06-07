@@ -588,14 +588,23 @@ $(document).on("keyup", ".sold_area", function() {
     $("#totalArea").val(sum);
 });
 
+//Sold Property
 function uploadRegBtn(me, id, buyer)
 {
     $('#buyer').val(buyer);
     $('#sold_id').val(id);
 }
 
+//Add Property
 function uploadMyRegBtn(me, id, prop)
 {
     $('#property').val(prop);
     $('#prop_id').val(id);
+}
+
+//Add 143
+function uploadOFT(me, id, khet)
+{
+    $('#khet').val(khet);
+    $('#khet_id').val(id);
 }

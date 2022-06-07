@@ -3,6 +3,8 @@
 use App\Http\Controllers\PortalController;
 use App\Http\Controllers\PortalDataController;
 use App\Http\Controllers\MailController;
+use App\Http\Controllers\InvoiceController;
+use App\Http\Controllers\ReceiptFormController;
 use App\Http\Controllers\UserLogin;
 use Illuminate\Support\Facades\Route;
 
@@ -26,6 +28,8 @@ Route::prefix('/')->group(function () {
     
     //update Added registry
     Route::post('/uploadMyRegBtn', [PortalController::class, 'uploadMyRegBtn']);
+    //update 143
+    Route::post('/uploadoft', [PortalController::class, 'uploadoft']);
 
     //Sell Properties
     Route::get('/sell-property', [PortalDataController::class, 'sellProperty']);
@@ -96,4 +100,20 @@ Route::prefix('/')->group(function () {
     /////// activity log ///////////
     Route::get('/activity-log', [PortalDataController::class, 'activityLog']);
     
+});
+
+Route::prefix('/receipt')->group(function () {
+    Route::get('/', [InvoiceController::class, 'Home']);
+    Route::post('/login', [InvoiceController::class, 'login']);
+
+    Route::get('/new', [InvoiceController::class, 'NewInvoice']);
+    Route::get('/all', [InvoiceController::class, 'all']);
+    Route::get('/all/print', [InvoiceController::class, 'print']);
+    Route::get('/profile', [InvoiceController::class, 'Profile']);
+
+    //form submission
+    Route::post('/new/generate', [ReceiptFormController::class, 'generateReceipt']);
+    Route::get('/plots', [ReceiptFormController::class, 'plots']);
+    Route::get('/checkPlotAvailability', [ReceiptFormController::class, 'checkPlotAvailability']);
+    Route::get('/checkPlotUser', [ReceiptFormController::class, 'checkPlotUser']);
 });

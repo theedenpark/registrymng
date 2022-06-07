@@ -1,208 +1,192 @@
 @extends('Dashboard.dashboard')
 
 @section('dashboardContent')
-<div class="px-4">
-    <h4 class="px-3"><i class="fas fa-cube"></i> Dashboard</h4>
+<div class="p-0">
+    <p class="px-3" style="font-size: 12px; color: #1abbff;"><i class="fas fa-cube"></i> Dashboard</p>
 
-    <div class="row mt-3 mb-4 px-2">
-        <div class="col-md-6 p-2">
-            <div class="card py-2 px-3 rounded-2 shadow-1" style="font-size: 11px;">
-                <div class="d-flex justify-content-between">
-                    <div>Total Available Area</div>
-                    <div class="text-success">
-                        <i class="fas fa-caret-up"></i>&nbsp;
-                        {{number_format($totalPurchasedArea)}} Sq.ft.
+    <div class="row m-0">
+        <div class="col-md-3 pb-3">
+            <div class="card rounded-4 p-4" style="height: 230px;">
+                <p class="p-0 m-0">
+                    <font style="font-size: 2rem; font-weight: 900; color: #1abbff;">{{number_format($totalKhet)}}</font><br>
+                    <font style="font-size: 10px; color: gray; position: relative; top: -10px;">Total number of khet</font>
+                </p>
+                <a href="/add-new-property">
+                    <button class="my-2 btn btn-block rounded-pill text-light shadow-1" style="font-size: 9px !important; letter-spacing: 0.5px; background: #1abbff;">
+                        Add Property
+                    </button>
+                </a>
+                <div class="d-flex justify-content-between mt-3" style="font-size: 10px;">
+                    <div style="color: lightgray;">Total Area</div>
+                    <div>{{number_format($totalPurchasedArea)}} Sq.ft.</div>
+                </div>
+                <div class="d-flex justify-content-between mt-1" style="font-size: 10px;">
+                    <div style="color: lightgray;">Sold Area</div>
+                    <div>{{number_format($totalSoldArea)}} Sq.ft.</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Shortcuts  -->
+        <div class="col-md-6 pb-3">
+            <div class="card rounded-4 p-2" style="height: 230px; overflow-y: auto;">
+                <div class="row m-0">
+                    <div class="col-md-3 p-2">
+                        <a href="{{url('add-new-property')}}" target="_blank">
+                            <div class="card shortcutCard shadow-2 rounded-2 p-2 border-1" style="height: 55px;">
+                                <p class="m-0 font-weight-bolder" style="font-size: 13px;">{{$addedProps}}</p>
+                                Properties
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-md-3 p-2">
+                        <a href="{{url('sell-property')}}" target="_blank">
+                            <div class="card shortcutCard shadow-2 rounded-2 p-2 border-1" style="height: 55px;">
+                                <p class="m-0 font-weight-bolder" style="font-size: 13px;">{{$soldProps}}</p>
+                                Sold
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-md-3 p-2">
+                        <a href="{{url('property-accounts')}}" target="_blank">
+                            <div class="card shortcutCard shadow-2 rounded-2 p-2 border-1" style="height: 55px;">
+                                <p class="m-0 font-weight-bolder" style="font-size: 13px;">{{$propAcc}}</p>
+                                Property Accounts
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-md-3 p-2">
+                        <a href="{{url('agents')}}" target="_blank">
+                            <div class="card shortcutCard shadow-2 rounded-2 p-2 border-1" style="height: 55px;">
+                            <p class="m-0 font-weight-bolder" style="font-size: 13px;">{{$agentAcc}}</p>    
+                            Agents
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-md-3 p-2">
+                        <a href="{{url('buyers')}}" target="_blank">
+                            <div class="card shortcutCard shadow-2 rounded-2 p-2 border-1" style="height: 55px;">
+                            <p class="m-0 font-weight-bolder" style="font-size: 13px;">{{$buyerAcc}}</p>    
+                                Buyers
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-md-3 p-2">
+                        <a href="{{url('draftmens')}}" target="_blank">
+                            <div class="card shortcutCard shadow-2 rounded-2 p-2 border-1" style="height: 55px;">
+                            <p class="m-0 font-weight-bolder" style="font-size: 13px;">{{$draftmenAcc}}</p>    
+                                Draftmens
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-md-3 p-2">
+                        <a href="{{url('sellers')}}" target="_blank">
+                            <div class="card shortcutCard shadow-2 rounded-2 p-2 border-1" style="height: 55px;">
+                            <p class="m-0 font-weight-bolder" style="font-size: 13px;">{{$sellerAcc}}</p>    
+                                Sellers
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-md-3 p-2">
+                        <a href="{{url('witness')}}" target="_blank">
+                            <div class="card shortcutCard shadow-2 rounded-2 p-2 border-1" style="height: 55px;">
+                            <p class="m-0 font-weight-bolder" style="font-size: 13px;">{{$witnessAcc}}</p>    
+                                Witness
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-md-3 p-2">
+                        <a href="{{url('banks')}}" target="_blank">
+                            <div class="card shortcutCard shadow-2 rounded-2 p-2 border-1" style="height: 55px;">
+                            <p class="m-0 font-weight-bolder" style="font-size: 13px;">{{$banksAcc}}</p>    
+                                Bank Accounts
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-md-3 p-2">
+                        <a href="{{url('property-type')}}" target="_blank">
+                            <div class="card shortcutCard shadow-2 rounded-2 p-2 border-1" style="height: 55px;">
+                            <p class="m-0 font-weight-bolder" style="font-size: 13px;">{{$propType}}</p>    
+                                Property Types
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-md-3 p-2">
+                        <a href="{{url('revenue-village')}}" target="_blank">
+                            <div class="card shortcutCard shadow-2 rounded-2 p-2 border-1" style="height: 55px;">
+                            <p class="m-0 font-weight-bolder" style="font-size: 13px;">{{$revVill}}</p>    
+                                Revenue Villages
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-md-3 p-2">
+                        <a href="{{url('units-management')}}" target="_blank">
+                            <div class="card shortcutCard shadow-2 rounded-2 p-2 border-1" style="height: 55px;">
+                            <p class="m-0 font-weight-bolder" style="font-size: 13px;">{{$units}}</p>    
+                                Units
+                            </div>
+                        </a>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="col-md-6 p-2">
-            <div class="card py-2 px-3 rounded-2 shadow-1" style="font-size: 11px;">
+
+        <!-- Units  -->
+        <div class="col-md-3 pb-3">
+            <div class="card rounded-4 p-3" style="height: 230px; font-size: 11px !important;">
                 <div class="d-flex justify-content-between">
-                    <div>Total Sold Area</div>
-                    <div class="text-info">
-                        <i class="fas fa-caret-up"></i>&nbsp;{{number_format($totalSoldArea)}} Sq.ft.</div>
+                    <div>
+                        <font class="font-weight-bolder">Units (1)</font>
+                    </div>
+                    <div>
+                        <font class="font-weight-bolder">In Sq.ft.</font>
+                    </div>
+                </div>
+                <div style="overflow-y: auto; height: 95%; padding-right: 5px;">
+                    <div class="d-flex justify-content-between mt-2" style="color: #1abbff; border-bottom: 1px solid #eee;">
+                        <div>Sq.ft</div>
+                        <div>1</div>
+                    </div>
+                    @foreach($allUnits as $unit)
+                    <div class="d-flex justify-content-between mt-2" style="border-bottom: 1px solid #eee;">
+                        <div>{{$unit->unit_name}}</div>
+                        <div>{{number_format($unit->unit_value)}}</div>
+                    </div>
+                    @endforeach
                 </div>
             </div>
         </div>
-        <div class="col-md-6 p-2">
-            <div class="card py-2 px-3 rounded-2 shadow-1" style="font-size: 11px;">
-                <div class="d-flex justify-content-between">
-                    <div>Total Purchase Value</div>
-                    <div class="text-info">
-                        <i class="fas fa-caret-up"></i>&nbsp;{{number_format($totalPurchaseValue)}}&nbsp;INR</div>
-                </div>
+
+        <!-- Cards  -->
+        <div class="col-md-3 pb-3">
+            <div class="card rounded-4 p-2 text-center">
+                <p class="my-2" style="font-size: 12px;">Available Area</p>
+                <p style="font-weight: 900; font-size: 19px; color: #1abbff;"><i class="fa-solid fa-caret-up"></i> {{number_format($totalPurchasedArea)}} Sq.ft.</p>
+                <img src="/assets/images/2811029.svg" alt="" style="width: 100%; height: 70px; object-fit: cover; border-radius: 0px 0px 5px 5px;">
             </div>
         </div>
-        <div class="col-md-6 p-2">
-            <div class="card py-2 px-3 rounded-2 shadow-1" style="font-size: 11px;">
-                <div class="d-flex justify-content-between">
-                    <div>Total Sold Value</div>
-                    <div class="text-success">
-                        <i class="fas fa-caret-up"></i>&nbsp;{{number_format($totalSoldValue)}}&nbsp;INR</div>
-                </div>
+        <div class="col-md-3 pb-3">
+            <div class="card rounded-4 p-2 text-center">
+                <p class="my-2" style="font-size: 12px;">Sold Area</p>
+                <p style="font-weight: 900; font-size: 19px; color: #ffbf52;"><i class="fa-solid fa-caret-up"></i> {{number_format($totalSoldArea)}} Sq.ft.</p>
+                <img src="/assets/images/1831029.svg" alt="" style="width: 100%; height: 70px; object-fit: cover; border-radius: 0px 0px 5px 5px;">
+            </div>
+        </div>
+        <div class="col-md-3 pb-3">
+            <div class="card rounded-4 p-2 text-center">
+                <p class="my-2" style="font-size: 12px;">Purchase Value</p>
+                <p style="font-weight: 900; font-size: 19px; color: #42e2cf;"><i class="fa-solid fa-indian-rupee-sign"></i> {{number_format($totalPurchaseValue)}}</p>
+                <img src="/assets/images/2831029.svg" alt="" style="width: 100%; height: 70px; object-fit: cover; border-radius: 0px 0px 5px 5px;">
+            </div>
+        </div>
+        <div class="col-md-3 pb-3">
+            <div class="card rounded-4 p-2 text-center">
+                <p class="my-2" style="font-size: 12px;">Sold Value</p>
+                <p style="font-weight: 900; font-size: 19px; color: #42e2cf;"><i class="fa-solid fa-indian-rupee-sign"></i> {{number_format($totalSoldValue)}}</p>
+                <img src="/assets/images/2831029.svg" alt="" style="width: 100%; height: 70px; object-fit: cover; border-radius: 0px 0px 5px 5px;">
             </div>
         </div>
     </div>
 
-    <!-- dashboard  -->
-    <div class="row m-0 dashCards">
-        
-        <h4 class="px-3">Quick Links</h4>
-        <div class="col-md-12">
-            <div class="pb-3">1. Property Management</div>
-        </div>
-        <div class="col-md-6 px-3">
-            <div class="card mb-3 p-3">
-                <div class="d-flex justify-content-between align-items-center">
-                    <div class="">
-                        Added Properties <br>
-                        <a href="{{url('add-new-property')}}" id="view_link"><i class="far fa-eye"></i> View</a>
-                    </div>
-                    <div class="count_no">
-                        {{$addedProps}}
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- @if(session('userType') == 1)
-        <div class="col-md-6 px-3">
-            <div class="card mb-3 p-3">
-                <div class="d-flex justify-content-between align-items-center">
-                    <div class="">
-                        Combined Properties <br>
-                        <a href="{{url('combine-property')}}" id="view_link"><i class="far fa-eye"></i> View</a>
-                    </div>
-                    <div class="count_no">
-                        {{$combinedProps}}
-                    </div>
-                </div>
-            </div>
-        </div>
-        @endif -->
-        <div class="col-md-6 px-3">
-            <div class="card mb-3 p-3">
-                <div class="d-flex justify-content-between align-items-center">
-                    <div class="">
-                        Sold Properties <br>
-                        <a href="{{url('sell-property')}}" id="view_link"><i class="far fa-eye"></i> View</a>
-                    </div>
-                    <div class="count_no">
-                        {{$soldProps}}
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="col-md-12">
-            <div class="py-3">2. Individual Management</div>
-        </div>
-        <div class="col-md-4 px-3">
-            <div class="card mb-3 p-3">
-                <div class="d-flex justify-content-between align-items-center">
-                    <div class="">Property Accounts <br>
-                        <a href="{{url('property-accounts')}}" id="view_link"><i class="far fa-eye"></i> View</a></div>
-                    <div class="count_no">
-                        {{$propAcc}}
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-4 px-3">
-            <div class="card mb-3 p-3">
-                <div class="d-flex justify-content-between align-items-center">
-                    <div class="">Agents <br>
-                        <a href="{{url('agents')}}" id="view_link"><i class="far fa-eye"></i> View</a></div>
-                    <div class="count_no">
-                        {{$agentAcc}}
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-4 px-3">
-            <div class="card mb-3 p-3">
-                <div class="d-flex justify-content-between align-items-center">
-                    <div class="">Buyers <br>
-                        <a href="{{url('buyers')}}" id="view_link"><i class="far fa-eye"></i> View</a></div>
-                    <div class="count_no">
-                        {{$buyerAcc}}
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-4 px-3">
-            <div class="card mb-3 p-3">
-                <div class="d-flex justify-content-between align-items-center">
-                    <div class="">Draftmens <br>
-                        <a href="{{url('draftmens')}}" id="view_link"><i class="far fa-eye"></i> View</a></div>
-                    <div class="count_no">
-                        {{$draftmenAcc}}
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-4 px-3">
-            <div class="card mb-3 p-3">
-                <div class="d-flex justify-content-between align-items-center">
-                    <div class="">Sellers <br>
-                        <a href="{{url('sellers')}}" id="view_link"><i class="far fa-eye"></i> View</a></div>
-                    <div class="count_no">
-                        {{$sellerAcc}}
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-4 px-3">
-            <div class="card mb-3 p-3">
-                <div class="d-flex justify-content-between align-items-center">
-                    <div class="">Witness <br>
-                        <a href="{{url('witness')}}" id="view_link"><i class="far fa-eye"></i> View</a></div>
-                    <div class="count_no">
-                        {{$witnessAcc}}
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="col-md-12">
-            <div class="py-3">3. Settings</div>
-        </div>
-        <div class="col-md-4 px-3">
-            <div class="card mb-3 p-3">
-                <div class="d-flex justify-content-between align-items-center">
-                    <div class="">Banks Accounts <br>
-                        <a href="{{url('banks')}}" id="view_link"><i class="far fa-eye"></i> View</a></div>
-                    <div class="count_no">{{$banksAcc}}</div>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-4 px-3">
-            <div class="card mb-3 p-3">
-                <div class="d-flex justify-content-between align-items-center">
-                    <div class="">Property Types <br>
-                        <a href="{{url('property-type')}}" id="view_link"><i class="far fa-eye"></i> View</a></div>
-                    <div class="count_no">{{$propType}}</div>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-4 px-3">
-            <div class="card mb-3 p-3">
-                <div class="d-flex justify-content-between align-items-center">
-                    <div class="">Revenue Villages <br>
-                        <a href="{{url('revenue-village')}}" id="view_link"><i class="far fa-eye"></i> View</a></div>
-                    <div class="count_no">{{$revVill}}</div>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-4 px-3">
-            <div class="card mb-3 p-3">
-                <div class="d-flex justify-content-between align-items-center">
-                    <div class="">Units <br>
-                        <a href="{{url('units-management')}}" id="view_link"><i class="far fa-eye"></i> View</a></div>
-                    <div class="count_no">{{$units}}</div>
-                </div>
-            </div>
-        </div>
-    </div>
 </div>
 @endsection
