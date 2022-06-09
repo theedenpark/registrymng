@@ -57,17 +57,45 @@ function close_my__Modal()
 }
 
 
+$('#listCustomers').on('click', '#user', function() {
+    // $('#user div.active').removeClass('uactive');
+    $(this).addClass('uactive');
+    $(this).siblings().removeClass('uactive');
+});
 
-// function printDiv() 
-// {
 
-//   var divToPrint=document.getElementById('invoice').innerHTML;
+function getDetails(mobile)
+{
+    $.ajax({
+        type: "GET",
+        url: '/receipt/getDetails',
+        data: {
+            mobile: mobile
+        },
+        success: function(response){
+            if(response != false)
+            {
+                $('#customerDetails').html(response);
+            }
+        }
+    });
+}
 
-//   var newWin=window.open('','Print-Window');
+$("#myinput").keyup(function() {
 
-//   newWin.document.open();
+    var filter = $(this).val(),
+    count = 0;
 
-//   newWin.document.write('<html><link href="/bootstrap/css/mdb.min.css" rel="stylesheet" /><link rel="stylesheet" href="/invoice_assets/style.css"><body onload="window.print()">'+divToPrint+'</body></html>');
+    $('#listCustomers div').each(function() {
 
-//   newWin.document.close();
-// }
+      if ($(this).text().search(new RegExp(filter, "i")) < 0)
+      {
+        $(this).hide(); 
+      } 
+      else 
+      {
+        $(this).show();
+        count++;
+      }
+    });
+});

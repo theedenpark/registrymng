@@ -37,8 +37,8 @@
                     </div>    
                 </a>
             </li>
-            <!-- <li>
-                <a class="" href="{{url('/receipt/clients')}}">
+            <li>
+                <a class="" href="{{url('/receipt/customers')}}">
                     <div class="d-flex">
                         <div class="col-1 text-center">
                             <i class="fas fa-users"></i>
@@ -46,7 +46,7 @@
                         <div class="px-2">All Customers</div>
                     </div>    
                 </a>
-            </li> -->
+            </li>
             <li class="mt-5">
                 <a class="" href="{{url('/receipt/profile')}}">
                     <div class="d-flex">

@@ -113,4 +113,34 @@ class ReceiptFormController extends Controller
         } 
     }
 
+    public function getDetails(Request $req)
+    {
+        if(session()->has('InvoiceAdminID'))
+        {
+            $mobile = $_GET['mobile'];
+            $user = DB::table('z_invoice_all')
+                ->where('mobile', $mobile)
+                ->first();
+            $userHistory = DB::table('z_invoice_all')
+                            ->where('mobile', $mobile)
+                            ->orderBy('generated_on', 'desc')
+                            ->get();
+            $userTotal = DB::table('z_invoice_all')
+                            ->where('mobile', $mobile)
+                            ->sum('payment_amount');
+            if($user)
+            {
+                return view('Invoice/Dashboard.userDetails', [
+                    'user' => $user,
+                    'userHistory' => $userHistory,
+                    'userTotal' => $userTotal
+                    ]);
+            }
+            else
+            {
+                return false;
+            }
+        } 
+    }
+
 }

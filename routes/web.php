@@ -108,6 +108,7 @@ Route::prefix('/receipt')->group(function () {
 
     Route::get('/new', [InvoiceController::class, 'NewInvoice']);
     Route::get('/all', [InvoiceController::class, 'all']);
+    Route::get('/customers', [InvoiceController::class, 'customers']);
     Route::get('/all/print', [InvoiceController::class, 'print']);
     Route::get('/profile', [InvoiceController::class, 'Profile']);
 
@@ -116,4 +117,5 @@ Route::prefix('/receipt')->group(function () {
     Route::get('/plots', [ReceiptFormController::class, 'plots']);
     Route::get('/checkPlotAvailability', [ReceiptFormController::class, 'checkPlotAvailability']);
     Route::get('/checkPlotUser', [ReceiptFormController::class, 'checkPlotUser']);
+    Route::get('/getDetails', [ReceiptFormController::class, 'getDetails']);
 });
