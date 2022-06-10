@@ -32,7 +32,7 @@
                 </td>
                 <td>{{$data->receipt_format}}{{$data->receipt_no}}</td>
                 <td>{{$data->receipt_date}}</td>
-                <td>{{$data->customer_name}}</td>
+                <td>{{$data->primary_customer}}</td>
                 <td>{{$data->plot_no}}</td>
                 <td>{{$data->mobile}}</td>
                 <td>{{$data->phase}}</td>
@@ -45,7 +45,7 @@
                                 `{{$data->receipt_format}}`,
                                 `{{$data->receipt_no}}`, 
                                 `{{$data->receipt_date}}`,
-                                `{{$data->customer_name}}`,
+                                `{{$data->primary_customer}}`,
                                 `{{$data->plot_no}}`,
                                 `{{$data->email}}`,
                                 `{{$data->mobile}}`,

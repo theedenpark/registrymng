@@ -1,7 +1,11 @@
 @foreach($user as $value)
-<div class="col-md-12 p-2">
-    <label for="">Customer Name</label>
-    <input type="text" name="customer_name" class="form-control" readonly required value="{{$value->customer_name}}">
+<div class="col-md-6 p-2">
+    <label for="">Primary Customer</label>
+    <input type="text" name="primary_customer" class="form-control" readonly required value="{{$value->primary_customer}}">
+</div>
+<div class="col-md-6 p-2">
+    <label for="">Secondary Customer</label>
+    <input type="text" name="secondary_customer" class="form-control" readonly required value="{{$value->secondary_customer}}">
 </div>
 <div class="col-md-6 p-2">
     <label for="">Email</label>

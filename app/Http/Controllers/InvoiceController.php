@@ -106,7 +106,7 @@ class InvoiceController extends Controller
         if(session()->has('InvoiceAdminID'))
         {
             $customers = DB::table('z_invoice_all')
-                    ->orderBy('customer_name', 'asc')
+                    ->orderBy('generated_on', 'desc')
                     ->where('receipt_no', '!=', 999)
                     ->groupBy('mobile')
                     ->get();

@@ -27,7 +27,7 @@
                     </div>
                     <div class="col-9 px-2">
                         <p class="m-0 p-0 text-dark" style="line-height: 20px; font-weight: 700;">
-                            {{$customer->customer_name}}
+                            {{$customer->primary_customer}}
                         </p>
                         <p class="m-0 p-0" style="line-height: 10px;">
                             <font style="font-size: 12px;">+91 {{$customer->mobile}}</font>
