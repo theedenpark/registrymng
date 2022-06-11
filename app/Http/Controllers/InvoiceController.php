@@ -7,6 +7,19 @@ use Illuminate\Http\Request, DB;
 
 class InvoiceController extends Controller
 {
+    public function logout()
+    {
+        if(session()->has('InvoiceAdminID'))
+        {
+            session()->pull('InvoiceAdminID');
+            return redirect('/receipt');
+        }
+        else
+        {
+            return redirect('/receipt');
+        }
+    }
+
     public function Home(){
         if(session()->has('InvoiceAdminID'))
         {
@@ -86,7 +99,7 @@ class InvoiceController extends Controller
         }
         else
         {
-            return view('/Invoice.index');
+            return redirect('/receipt');
         }
     }
 
@@ -103,7 +116,7 @@ class InvoiceController extends Controller
         }
         else
         {
-            return view('/Invoice.index');
+            return redirect('/receipt');
         }
     }
 
@@ -121,7 +134,7 @@ class InvoiceController extends Controller
         }
         else
         {
-            return view('/Invoice.index');
+            return redirect('/receipt');
         }
     }
 
@@ -141,7 +154,7 @@ class InvoiceController extends Controller
         }
         else
         {
-            return view('/Invoice.index');
+            return redirect('/receipt');
         }
     }
 
@@ -155,7 +168,7 @@ class InvoiceController extends Controller
         }
         else
         {
-            return view('/Invoice.index');
+            return redirect('/receipt');
         }
     }
 }

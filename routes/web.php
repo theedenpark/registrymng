@@ -111,6 +111,7 @@ Route::prefix('/receipt')->group(function () {
     Route::get('/customers', [InvoiceController::class, 'customers']);
     Route::get('/all/print', [InvoiceController::class, 'print']);
     Route::get('/profile', [InvoiceController::class, 'Profile']);
+    Route::get('/logout', [InvoiceController::class, 'logout']);
 
     //form submission
     Route::post('/new/generate', [ReceiptFormController::class, 'generateReceipt']);
