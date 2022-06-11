@@ -10,7 +10,7 @@
                 <div class="p-2" style="height: 50%;">
                     <a href="receipt/new">
                         <div class="d-flex align-items-center justify-content-center shadow-lg rounded-4" style="height: 100%;">
-                            <i class="fa-solid fa-plus fa-8x text-primary"></i>
+                            <i class="fa-solid fa-plus fa-8x text-dark"></i>
                         </div>
                     </a>
                 </div>
@@ -33,10 +33,12 @@
                 <div class="p-2" style="height: 50%;">
                     <div style="display: flex; justify-content: space-between; flex-direction: column; height: 100%;">
                         <div class="card p-2 shadow-lg px-5 pt-4" style="height: 47%;">
-                            <p style="font-size: 40px;" class="text-uppercase text-success font-weight-bold">₹ {{number_format($totalAmount)}}</p>
+                            <p style="font-size: 40px;" class="text-uppercase text-danger font-weight-bold">₹ {{number_format($totalBAmount)}}</p>
+                            <p class="m-0 p-0 text-uppercase text-dark"> Booking Amount Received</p>
                         </div>
                         <div class="card p-2 shadow-lg px-5 pt-4" style="height: 47%;">
-                            <p style="font-size: 40px;" class="text-uppercase text-success font-weight-bold">₹ {{number_format($totalAmount)}}</p>
+                            <p style="font-size: 40px;" class="text-uppercase text-dark font-weight-bold">₹ {{number_format($totalIAmount)}}</p>
+                            <p class="m-0 p-0 text-uppercase text-dark"> Installment Amount Received</p>
                         </div>
                     </div>
                 </div>

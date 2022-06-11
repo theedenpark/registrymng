@@ -14,5 +14,9 @@
         "laravel-mix": "^6.0.6",
         "lodash": "^4.17.19",
         "postcss": "^8.1.14"
+    },
+    "dependencies": {
+        "@dicebear/avatars": "^4.10.2",
+        "@dicebear/micah": "^4.10.2"
     }
 }

@@ -6,7 +6,7 @@
     <a href="/receipt/customers">
         <h3 class="text-dark">Customers</h3>
     </a>
-    <div class="d-flex mt-3 border" id="allCustomersContainer">
+    <div class="d-flex mt-3 border rounded shadow-4" id="allCustomersContainer">
         <div class="col-3 p-0" style="border-right: 1px solid #eee;">
         <div class="customers">
             <div class="d-flex align-items-center m-0 p-2" id="search" style="background: none; border-bottom: 1px solid #ddd;">
@@ -23,10 +23,11 @@
             @foreach($customers as $customer)
                 <div class="row m-0 align-items-center p-2" id="user" onclick="getDetails(`{{$customer->mobile}}`)">
                     <div class="col-2 p-0">
-                        <i class="fa-solid fa-user-circle fa-3x"></i>
+                        {{-- <i class="fa-solid fa-user-circle fa-3x"></i> --}}
+                        <img src="" style="border-radius: 50%;" class="avatar">
                     </div>
                     <div class="col-9 px-2">
-                        <p class="m-0 p-0 text-dark" style="line-height: 20px; font-weight: 700;">
+                        <p class="m-0 p-0" style="line-height: 20px;">
                             {{$customer->primary_customer}}
                         </p>
                         <p class="m-0 p-0" style="line-height: 10px;">

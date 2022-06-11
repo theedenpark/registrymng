@@ -27,6 +27,10 @@
     <!-- No Index  -->
     <meta name="robots" content="noindex">
     <meta name="googlebot" content="noindex">
+
+    {{-- Highlight  --}}
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://johannburkard.de/resources/Johann/jquery.highlight-4.js"></script>
     
 </head>
 
@@ -45,4 +49,5 @@
 <script src="/invoice_assets/newBill.js"></script>
 <script src="/invoice_assets/login.js"></script>
 <script src="/invoice_assets/dependent.js"></script>
+
 </html>

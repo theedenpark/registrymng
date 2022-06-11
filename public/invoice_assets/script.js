@@ -27,13 +27,20 @@ $('#toggleBtn').click(function(){
 });
 
 //View Details
-function viewDetails(id, format, receipt, date, name, plot, email, mobile, address, phase, units, amount, words, payment_desc, size, gen_date)
+function viewDetails(id, format, receipt, date, pname, sname, plot, email, mobile, address, phase, units, amount, words, payment_desc, size, gen_date)
 {
     $('.modal__Overlay').fadeIn();
     $('.my__Modal').fadeIn();
 
     //send Details
-    $('#username').html(name);
+    if(sname != "")
+    {
+        $('#username').html(sname);
+    }
+    else
+    {
+        $('#username').html(pname);
+    }
     $('#receipt_no').html(format+receipt);
     $('#receipt_date').html('Receipt Date: '+date);
     $('#email').html('<i class="fa-solid fa-envelope"></i> '+email);
@@ -46,8 +53,6 @@ function viewDetails(id, format, receipt, date, name, plot, email, mobile, addre
     $('#words').html(words+' Rupees Only');
     $('#desc').html(payment_desc);
     $('#download').html('<a href="/receipt/all/print?id='+id+'" target="_blank"> <button class="btn btn-link btn-floating shadow-0"> <i class="fa-solid fa-download"></i> </button> </a>');
-
-    console.log(payment_desc);
 }
 
 function close_my__Modal()
@@ -99,3 +104,18 @@ $("#myinput").keyup(function() {
       }
     });
 });
+
+//get random avatar
+$('.avatar').each(function() {
+    var num = Math.floor(Math.random() * 10 + 1),
+    img = $(this);
+    img.attr('src', 'https://avatars.dicebear.com/api/micah/:' + num + '.svg');
+    img.attr('alt', 'Src: ' + img.attr('src'));
+});
+
+function searchChat(input)
+{
+    console.log();
+    var search_term = input;
+    $('.userChat').removeHighlight().highlight(search_term);
+}

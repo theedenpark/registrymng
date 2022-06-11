@@ -228,10 +228,16 @@ thead tr
 
 #user:hover
 {
-    background: #eef;
+    /* background: rgb(211, 211, 211); */
+    color: #000;
+    font-weight: 600;
 }
 
 .uactive
 {
-    background: #eef;
+    /* background: rgb(211, 211, 211); */
+    color: #000;
+    font-weight: 600;
 }
+
+.highlight { background-color: aqua }

@@ -32,7 +32,13 @@
                 </td>
                 <td>{{$data->receipt_format}}{{$data->receipt_no}}</td>
                 <td>{{$data->receipt_date}}</td>
-                <td>{{$data->primary_customer}}</td>
+                <td>
+                    @if($data->secondary_customer != "") 
+                    {{$data->secondary_customer}}
+                    @else
+                    {{$data->primary_customer}}
+                    @endif
+                </td>
                 <td>{{$data->plot_no}}</td>
                 <td>{{$data->mobile}}</td>
                 <td>{{$data->phase}}</td>
@@ -46,6 +52,7 @@
                                 `{{$data->receipt_no}}`, 
                                 `{{$data->receipt_date}}`,
                                 `{{$data->primary_customer}}`,
+                                `{{$data->secondary_customer}}`,
                                 `{{$data->plot_no}}`,
                                 `{{$data->email}}`,
                                 `{{$data->mobile}}`,

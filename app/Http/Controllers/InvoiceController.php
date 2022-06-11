@@ -21,14 +21,19 @@ class InvoiceController extends Controller
             $totalCustomers = DB::table('z_invoice_all')
                             ->groupBy('mobile')
                             ->count();
-            $totalAmount = DB::table('z_invoice_all')
+            $totalBAmount = DB::table('z_invoice_all')
+                            ->where('receipt_type', 1)
+                            ->sum('payment_amount');
+            $totalIAmount = DB::table('z_invoice_all')
+                            ->where('receipt_type', 2)
                             ->sum('payment_amount');
             return view('/Invoice/Dashboard.dashboard', [
                 'totalReceipt' => $totalReceipt,
-                'totalBookings' => $totalBookings,
+                'totalBookings' => $totalBookings, 
                 'totalInstallments' => $totalInstallments,
                 'totalCustomers' => $totalCustomers,
-                'totalAmount' => $totalAmount,
+                'totalBAmount' => $totalBAmount,
+                'totalIAmount' => $totalIAmount,
             ]);
         }
         else
