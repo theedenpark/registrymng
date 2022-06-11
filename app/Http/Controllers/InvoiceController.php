@@ -24,6 +24,7 @@ class InvoiceController extends Controller
         if(session()->has('InvoiceAdminID'))
         {
             $totalReceipt = DB::table('z_invoice_all')
+                            ->where('receipt_no', '!=', 999)
                             ->count();
             $totalBookings = DB::table('z_invoice_all')
                             ->where('receipt_type', 1)
