@@ -11,7 +11,7 @@
                 <a class="" href="{{url('/receipt')}}">
                     <div class="d-flex">
                         <div class="col-1 text-center">
-                            <i class="fas fa-th-large"></i>
+                            <img src="/assets/icons/dashboard.png" alt="" style="height: 18px;">
                         </div>
                         <div class="px-2">Dashboard</div>
                     </div>    
@@ -19,9 +19,9 @@
             </li>
             <li>
                 <a class="" href="{{url('/receipt/new')}}">
-                    <div class="d-flex">
+                    <div class="d-flex"> 
                         <div class="col-1 text-center">
-                            <i class="fas fa-plus"></i>
+                            <img src="/assets/icons/add-property.png" alt="" style="height: 18px;">
                         </div>
                         <div class="px-2">New Receipt</div>
                     </div>    
@@ -31,7 +31,7 @@
                 <a class="" href="{{url('/receipt/all')}}">
                     <div class="d-flex">
                         <div class="col-1 text-center">
-                            <i class="fas fa-file-invoice"></i>
+                            <img src="/assets/icons/folder.png" alt="" style="height: 18px;">
                         </div>
                         <div class="px-2">All Receipt</div>
                     </div>    
@@ -41,7 +41,7 @@
                 <a class="" href="{{url('/receipt/customers')}}">
                     <div class="d-flex">
                         <div class="col-1 text-center">
-                            <i class="fas fa-users"></i>
+                            <img src="/assets/icons/witness.png" alt="" style="height: 18px;">
                         </div>
                         <div class="px-2">All Customers</div>
                     </div>    
@@ -51,7 +51,7 @@
                 <a class="" href="{{url('/receipt/profile')}}">
                     <div class="d-flex">
                         <div class="col-1 text-center">
-                            <i class="fas fa-user"></i>
+                            <img src="/assets/icons/add-user.png" alt="" style="height: 18px;">
                         </div>
                         <div class="px-2">Profile</div>
                     </div>    
@@ -61,7 +61,7 @@
                 <a class="" href="{{url('/receipt/logout')}}">
                     <div class="d-flex">
                         <div class="col-1 text-center">
-                            <i class="fas fa-power-off"></i>
+                            <img src="/assets/icons/logout.png" alt="" style="height: 18px;">
                         </div>
                         <div class="px-2">Logout</div>
                     </div>    
