@@ -6,7 +6,7 @@
     <script src="//code.jquery.com/ui/1.11.2/jquery-ui.js"></script>
     <script src="//code.jquery.com/jquery-1.10.2.js"></script>
 <div class="container col-md-9 py-4">
-    <h3>Generate New Receipt</h3>
+    <h3 class="text-dark">Generate New Receipt</h3>
     <form actionUrl="/receipt/new/generate" id="newBillForm" method="post">
         @csrf
         <div class="row m-0">

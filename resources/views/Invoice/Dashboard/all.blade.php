@@ -2,11 +2,12 @@
 
 @section('dashboardContent')
 <link rel='stylesheet' href='https://cdn.datatables.net/1.10.9/css/jquery.dataTables.min.css'>
-<div class="col-md-12 py-4">
-    <h3>All Receipts</h3>
+<div class="col-md-12 py-4 px-2">
+    <h3 class="text-dark">All Receipts</h3>
     <table class="table table-sm my-3 table-hover" style="font-size: 11px;" id="myDataTable">
         <thead>
             <tr style="background: #eee;">
+                <th>Type</th>
                 <th>Receipt_No.</th>
                 <th>R_Date</th>
                 <th>Customer</th>
@@ -22,9 +23,22 @@
         <tbody>
             @foreach($all as $data)
             <tr style="font-size: 12px;">
+                <td>
+                    @if($data->receipt_type == 1)
+                    Pre-Booking
+                    @elseif($data->receipt_type == 2)
+                    Installment
+                    @endif
+                </td>
                 <td>{{$data->receipt_format}}{{$data->receipt_no}}</td>
                 <td>{{$data->receipt_date}}</td>
-                <td>{{$data->customer_name}}</td>
+                <td>
+                    @if($data->secondary_customer != "") 
+                    {{$data->secondary_customer}}
+                    @else
+                    {{$data->primary_customer}}
+                    @endif
+                </td>
                 <td>{{$data->plot_no}}</td>
                 <td>{{$data->mobile}}</td>
                 <td>{{$data->phase}}</td>
@@ -37,7 +51,8 @@
                                 `{{$data->receipt_format}}`,
                                 `{{$data->receipt_no}}`, 
                                 `{{$data->receipt_date}}`,
-                                `{{$data->customer_name}}`,
+                                `{{$data->primary_customer}}`,
+                                `{{$data->secondary_customer}}`,
                                 `{{$data->plot_no}}`,
                                 `{{$data->email}}`,
                                 `{{$data->mobile}}`,

@@ -200,3 +200,44 @@ thead tr
     /* padding: 15px 20px; */
     z-index: 2000;
 }
+
+#allCustomersContainer
+{
+    height: 88vh;
+}
+
+.customers
+{
+    /* background: red; */
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+#listCustomers
+{
+    flex: 1;
+    overflow-y: auto;
+}
+
+#user
+{
+    cursor: pointer;
+    border-bottom: 1px solid #ddd;
+}
+
+#user:hover
+{
+    /* background: rgb(211, 211, 211); */
+    color: #000;
+    font-weight: 600;
+}
+
+.uactive
+{
+    /* background: rgb(211, 211, 211); */
+    color: #000;
+    font-weight: 600;
+}
+
+.highlight { background-color: aqua }

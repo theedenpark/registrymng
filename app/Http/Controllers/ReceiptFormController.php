@@ -16,7 +16,8 @@ class ReceiptFormController extends Controller
                 'plot_no' => $req->plot_no,
                 'receipt_date' => $req->receipt_date,
                 'receipt_no' => $req->receipt_no,
-                'customer_name' => $req->customer_name,
+                'primary_customer' => $req->primary_customer,
+                'secondary_customer' => $req->secondary_customer,
                 'email' => $req->email,
                 'mobile' => $req->mobile,
                 'address' => $req->address,
@@ -104,6 +105,36 @@ class ReceiptFormController extends Controller
             {
                 return view('Invoice/Dashboard.customerDetails', [
                     'user' => $user
+                    ]);
+            }
+            else
+            {
+                return false;
+            }
+        } 
+    }
+
+    public function getDetails(Request $req)
+    {
+        if(session()->has('InvoiceAdminID'))
+        {
+            $mobile = $_GET['mobile'];
+            $user = DB::table('z_invoice_all')
+                ->where('mobile', $mobile)
+                ->first();
+            $userHistory = DB::table('z_invoice_all')
+                            ->where('mobile', $mobile)
+                            ->orderBy('generated_on', 'desc')
+                            ->get();
+            $userTotal = DB::table('z_invoice_all')
+                            ->where('mobile', $mobile)
+                            ->sum('payment_amount');
+            if($user)
+            {
+                return view('Invoice/Dashboard.userDetails', [
+                    'user' => $user,
+                    'userHistory' => $userHistory,
+                    'userTotal' => $userTotal
                     ]);
             }
             else

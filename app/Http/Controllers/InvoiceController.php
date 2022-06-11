@@ -10,7 +10,31 @@ class InvoiceController extends Controller
     public function Home(){
         if(session()->has('InvoiceAdminID'))
         {
-            return view('/Invoice/Dashboard.dashboard');
+            $totalReceipt = DB::table('z_invoice_all')
+                            ->count();
+            $totalBookings = DB::table('z_invoice_all')
+                            ->where('receipt_type', 1)
+                            ->count();
+            $totalInstallments = DB::table('z_invoice_all')
+                            ->where('receipt_type', 2)
+                            ->count();
+            $totalCustomers = DB::table('z_invoice_all')
+                            ->groupBy('mobile')
+                            ->count();
+            $totalBAmount = DB::table('z_invoice_all')
+                            ->where('receipt_type', 1)
+                            ->sum('payment_amount');
+            $totalIAmount = DB::table('z_invoice_all')
+                            ->where('receipt_type', 2)
+                            ->sum('payment_amount');
+            return view('/Invoice/Dashboard.dashboard', [
+                'totalReceipt' => $totalReceipt,
+                'totalBookings' => $totalBookings, 
+                'totalInstallments' => $totalInstallments,
+                'totalCustomers' => $totalCustomers,
+                'totalBAmount' => $totalBAmount,
+                'totalIAmount' => $totalIAmount,
+            ]);
         }
         else
         {
@@ -71,10 +95,28 @@ class InvoiceController extends Controller
         {
             $all = DB::table('z_invoice_all')
                     ->orderBy('receipt_no', 'asc')
-                    // ->where('receipt_no', '!=', 999)
+                    ->where('receipt_no', '!=', 999)
                     ->get();
             return view('/Invoice/Dashboard.all', [
                 'all' => $all
+            ]);
+        }
+        else
+        {
+            return view('/Invoice.index');
+        }
+    }
+
+    public function customers(){
+        if(session()->has('InvoiceAdminID'))
+        {
+            $customers = DB::table('z_invoice_all')
+                    ->orderBy('generated_on', 'desc')
+                    ->where('receipt_no', '!=', 999)
+                    ->groupBy('mobile')
+                    ->get();
+            return view('/Invoice/Dashboard.customers', [
+                'customers' => $customers
             ]);
         }
         else

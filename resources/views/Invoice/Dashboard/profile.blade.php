@@ -1,14 +1,14 @@
 @extends('Invoice/Dashboard.index')
 
 @section('dashboardContent')
-<div class="container col-md-6">
-    <h3>Profile</h3>
+<div class="container col-md-6 bg-light rounded-4">
+    <h3 class="pt-3">Profile</h3>
     <!-- <div class="my-4">
         <label for="" class="pb-2">Company Logo</label><br/>
         <img src="/assets/logo/logo.svg" alt="" style="height: 100px;" class="border rounded-3">
     </div> -->
     @foreach($profile as $value)
-    <div class="my-4">
+    <div class="mt-2 mb-4">
         <label for="" class="pb-2">Company Name</label><br/>
         <input type="text" class="loginFields" value='{{$value->company_name}}' disabled>
     </div>
@@ -28,7 +28,7 @@
         <label for="" class="pb-2">Address Line 2</label><br/>
         <input type="text" class="loginFields" value='{{$value->address_line_two}}' disabled>
     </div>
-    <div class="my-4">
+    <div class="my-4 pb-4">
         <a href="/receipt">
             <button class="btn btn-link btn-lg text-capitalize"><i class="fas fa-arrow-left"></i> Back To Dashboard</button>
         </a>

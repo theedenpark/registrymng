@@ -46,7 +46,11 @@
             <div class="d-flex mb-2">
                 <div class="col-md-1 font-weight-bold">Name :&nbsp;</div>
                 <div class="col-md-11">
-                    {{$value->customer_name}}
+                    @if($value->secondary_customer != "") 
+                    {{$value->secondary_customer}}
+                    @else
+                    {{$value->primary_customer}}
+                    @endif
                 </div>
             </div>
             <div class="d-flex mb-2">
