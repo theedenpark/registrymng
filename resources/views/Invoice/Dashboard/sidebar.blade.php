@@ -58,7 +58,7 @@
                 </a>
             </li>
             <li class="mb-5 pb-5">
-                <a class="" href="{{url('/receipt/logout')}}">
+                <a class="" href="{{url('/receipt/logout')}}" onclick="return confirm('Are you sure to log out?')">
                     <div class="d-flex">
                         <div class="col-1 text-center">
                             <img src="/assets/icons/logout.png" alt="" style="height: 18px;">

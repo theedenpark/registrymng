@@ -9,8 +9,8 @@
             <div style="display: flex; flex-direction: column; height: 100%;">
                 <div class="p-2" style="height: 50%;">
                     <a href="receipt/new">
-                        <div class="d-flex align-items-center justify-content-center shadow-lg rounded-4" style="height: 100%;">
-                            <i class="fa-solid fa-plus fa-8x text-dark"></i>
+                        <div class="d-flex align-items-center justify-content-center bg-primary shadow-lg rounded-4" style="height: 100%;">
+                            <i class="fa-solid fa-plus fa-8x text-light"></i>
                         </div>
                     </a>
                 </div>
