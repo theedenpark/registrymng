@@ -11,13 +11,13 @@
             </div>
             <div style="flex: 1; overflow-y: auto; border-right: 1px solid #ddd; background: rgb(243, 243, 243);">
                 @foreach($userHistory as $value)
-                <div class="userChat" style="max-width: 60%;">
+                <div class="userChat">
                     <div class="text-center my-2">
                         <span class="badge badge-warning shadow-2" style="font-weight: 400; font-size: 11px;">
                             <i class="fa-regular fa-clock" style="color: rgba(0,0,0,0.65);"></i> {{date('d-M-y', strtotime($value->generated_on))}} at {{date('h:i a', strtotime($value->generated_on))}}
                         </span>
                     </div>
-                    <div class="card shadow-2 mx-3 my-2 px-2 py-1" style="color: #000; width: fit-content; font-size: 13px;">
+                    <div class="card shadow-2 mx-3 my-2 px-2 py-1" style="color: #000; width: fit-content; max-width: 70%; font-size: 13px;">
                         <p class="p-0 m-0 font-weight-bold">
                             @if($value->receipt_type == 1) 
                             Pre-Booking
