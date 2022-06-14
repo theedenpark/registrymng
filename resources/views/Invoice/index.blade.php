@@ -1,7 +1,7 @@
 @extends('Invoice.layout')
 
 @section('title')
-    Login - Invoice Management | Ewen Realtors
+    Login - Receipt Management | Ewen Realtors
 @endsection
 
 @section('body')
