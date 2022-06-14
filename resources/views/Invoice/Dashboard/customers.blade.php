@@ -14,7 +14,7 @@
                     <i class="fa-solid fa-search"></i>
                 </div>
                 <div style="flex: 1;">
-                    <input type="text" placeholder="Search"  class="border-0 w-100" style="outline: none; background: none;" id="myinput">
+                    <input type="search" placeholder="Search"  class="border-0 w-100" style="outline: none; background: none;" id="myinput">
                 </div>
             </div> 
 
@@ -42,7 +42,7 @@
         </div>
         <div class="col-9 p-0" id="customerDetails">
             <div class="d-flex h-100 w-100 align-items-center justify-content-center" style="background: #fff;">
-                <img src="/invoice_assets/images/hi.jpg" alt="" style="height: 500px;">
+                <img src="/assets/logo/logo.svg" alt="" style="height: 500px; filter:grayscale(2.8); opacity: 0.3;">
             </div>
         </div>
     </div>
