@@ -11,7 +11,7 @@
                 <th>Receipt_No.</th>
                 <th>R_Date</th>
                 <th>Customer</th>
-                <th>Plot</th>
+                {{-- <th>Plot</th> --}}
                 <th>Phone</th>
                 <th>Phase</th>
                 <th>Amount</th>
@@ -39,7 +39,7 @@
                     {{$data->primary_customer}}
                     @endif
                 </td>
-                <td>{{$data->plot_no}}</td>
+                {{-- <td>{{$data->plot_no}}</td> --}}
                 <td>{{$data->mobile}}</td>
                 <td>{{$data->phase}}</td>
                 <td>₹{{$data->payment_amount}}</td>
