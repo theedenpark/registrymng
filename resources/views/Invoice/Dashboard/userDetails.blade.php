@@ -11,7 +11,7 @@
             </div>
             <div style="flex: 1; overflow-y: auto; border-right: 1px solid #ddd; background: rgb(243, 243, 243);">
                 @foreach($userHistory as $value)
-                <div class="userChat">
+                <div class="userChat" style="max-width: 60%;">
                     <div class="text-center my-2">
                         <span class="badge badge-warning shadow-2" style="font-weight: 400; font-size: 11px;">
                             <i class="fa-regular fa-clock" style="color: rgba(0,0,0,0.65);"></i> {{date('d-M-y', strtotime($value->generated_on))}} at {{date('h:i a', strtotime($value->generated_on))}}
@@ -38,8 +38,8 @@
                         <p class="p-0 m-0">Plot No. : {{$value->plot_no}}</p>
                         <p class="p-0 m-0">Plot Size : {{$value->unit_size}} Sq.Yards</p>
                         <p class="p-0 m-0">Address : {{$value->address}}</p>
-                        <p class="p-0 m-0">Mobole :+91  {{$value->mobile}}</p>
-                        <p class="p-0 m-0">Email :+91  {{$value->email}}</p>
+                        <p class="p-0 m-0">Mobile : +91  {{$value->mobile}}</p>
+                        <p class="p-0 m-0">Email : {{$value->email}}</p>
                     </div>
                     <div class="card shadow-2 mx-3 my-2 px-2 py-1" style="color: #000; width: fit-content; font-size: 13px;">
                         <p class="p-0 m-0">Amount : <b>₹{{number_format($value->payment_amount)}}/-</b></p>
