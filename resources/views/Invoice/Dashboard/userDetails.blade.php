@@ -42,7 +42,7 @@
                         <p class="p-0 m-0"><b>Email :</b> {{$value->email}}</p>
                     </div>
                     <div class="card shadow-2 mx-3 my-2 px-2 py-1" style="color: #000; width: fit-content; font-size: 13px;">
-                        <p class="p-0 m-0"><b>Amount : <b>₹{{number_format($value->payment_amount)}}/-</b></p>
+                        <p class="p-0 m-0">Amount : <b>₹{{number_format($value->payment_amount)}}/-</b></p>
                     </div>
                     <a href="/receipt/all/print?id={{$value->receipt_id}}" target="_blank">
                         <button class="btn border-1 mx-3 text-capitalize shadow-2 text-primary bg-light"><i class="fa-solid fa-download"></i> &nbsp;Download Receipt</button>
