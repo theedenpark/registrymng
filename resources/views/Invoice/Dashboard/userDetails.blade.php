@@ -37,6 +37,9 @@
                         <p class="p-0 m-0">Phase : The Ewen Park - {{$value->phase}}</p>
                         <p class="p-0 m-0">Plot No. : {{$value->plot_no}}</p>
                         <p class="p-0 m-0">Plot Size : {{$value->unit_size}} Sq.Yards</p>
+                        <p class="p-0 m-0">Address : {{$value->address}}</p>
+                        <p class="p-0 m-0">Mobole :+91  {{$value->mobile}}</p>
+                        <p class="p-0 m-0">Email :+91  {{$value->email}}</p>
                     </div>
                     <div class="card shadow-2 mx-3 my-2 px-2 py-1" style="color: #000; width: fit-content; font-size: 13px;">
                         <p class="p-0 m-0">Amount : <b>₹{{number_format($value->payment_amount)}}/-</b></p>
@@ -68,23 +71,6 @@
         <div class="text-center mt-4">
             <i class="fa-solid fa-user-circle fa-8x"></i>
             <p class="pt-2 mb-0 text-dark font-weight-bold" style="font-size: 24px;">{{$user->primary_customer}}</p>
-            <p><i class="fa-solid fa-phone"></i> +91 {{$user->mobile}}</p>
-        </div>
-        <div class="d-flex align-items-center">
-            <div class="col-2 px-3 text-center">
-                <i class="fa-regular fa-envelope"></i>
-            </div>
-            <div style="font-size: 13px;">
-                {{$user->email}}
-            </div>
-        </div>
-        <div class="d-flex align-items-center">
-            <div class="col-2 px-3 text-center">
-                <i class="fa-regular fa-map"></i>
-            </div>
-            <div style="font-size: 13px;">
-                {{$user->address}}
-            </div>
         </div>
         <div class="d-flex align-items-center">
             <div class="col-2 px-3 text-center">
