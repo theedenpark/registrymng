@@ -14,7 +14,7 @@
                 <label for="">Receipt Type</label>
                 <select name="receipt_type" id="forPlot" class="form-select">
                     <option disabled selected>Select Receipt Type</option>
-                    <option value="1">Pre-Booking</option>
+                    <option value="1">Booking</option>
                     <option value="2">Installment</option>
                 </select>
             </div>
