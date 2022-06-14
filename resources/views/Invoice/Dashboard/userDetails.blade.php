@@ -26,23 +26,23 @@
                             @endif
                             - {{$value->payment_desc}}
                         </p>
-                        <p class="p-0 m-0">Receipt No: {{$value->receipt_format}}{{$value->receipt_no}}</p>
-                        <p class="p-0 m-0">Customer: 
+                        <p class="p-0 m-0"><b>Receipt No:</b> {{$value->receipt_format}}{{$value->receipt_no}}</p>
+                        <p class="p-0 m-0"><b>Customer: </b>
                             @if($value->secondary_customer != "") 
                             {{$value->secondary_customer}}
                             @else
                             {{$value->primary_customer}}
                             @endif
                         </p>
-                        <p class="p-0 m-0">Phase : The Ewen Park - {{$value->phase}}</p>
-                        <p class="p-0 m-0">Plot No. : {{$value->plot_no}}</p>
-                        <p class="p-0 m-0">Plot Size : {{$value->unit_size}} Sq.Yards</p>
-                        <p class="p-0 m-0">Address : {{$value->address}}</p>
-                        <p class="p-0 m-0">Mobile : +91  {{$value->mobile}}</p>
-                        <p class="p-0 m-0">Email : {{$value->email}}</p>
+                        <p class="p-0 m-0"><b>Phase : </b>The Ewen Park - {{$value->phase}}</p>
+                        <p class="p-0 m-0"><b>Plot No. : </b>{{$value->plot_no}}</p>
+                        <p class="p-0 m-0"><b>Plot Size :</b> {{$value->unit_size}} Sq.Yards</p>
+                        <p class="p-0 m-0"><b>Address :</b> {{$value->address}}</p>
+                        <p class="p-0 m-0"><b>Mobile : </b>+91  {{$value->mobile}}</p>
+                        <p class="p-0 m-0"><b>Email :</b> {{$value->email}}</p>
                     </div>
                     <div class="card shadow-2 mx-3 my-2 px-2 py-1" style="color: #000; width: fit-content; font-size: 13px;">
-                        <p class="p-0 m-0">Amount : <b>₹{{number_format($value->payment_amount)}}/-</b></p>
+                        <p class="p-0 m-0"><b>Amount : <b>₹{{number_format($value->payment_amount)}}/-</b></p>
                     </div>
                     <a href="/receipt/all/print?id={{$value->receipt_id}}" target="_blank">
                         <button class="btn border-1 mx-3 text-capitalize shadow-2 text-primary bg-light"><i class="fa-solid fa-download"></i> &nbsp;Download Receipt</button>
@@ -72,12 +72,9 @@
             <i class="fa-solid fa-user-circle fa-8x"></i>
             <p class="pt-2 mb-0 text-dark font-weight-bold" style="font-size: 24px;">{{$user->primary_customer}}</p>
         </div>
-        <div class="d-flex align-items-center">
-            <div class="col-2 px-3 text-center">
-                <i class="fa-solid fa-indian-rupee-sign"></i>
-            </div>
+        <div class="text-center">
             <div style="font-size: 13px;" class="font-weight-bold">
-                {{number_format($userTotal)}} /- ( Total Paid )
+                ₹ {{number_format($userTotal)}} /- ( Total Paid )
             </div>
         </div>
     </div>
