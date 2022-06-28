@@ -26,7 +26,7 @@
             <tr style="font-size: 12px;">
                 <td>
                     @if($data->receipt_type == 1)
-                    Pre-Booking
+                    Booking
                     @elseif($data->receipt_type == 2)
                     Installment
                     @endif
