@@ -52,7 +52,7 @@ $("#updateReceipt").submit(function(e) {
             else
             {
                 $('.failed').fadeIn();
-                $('#generateBtn').html('Retry');
+                $('#updateBtn').html('Retry');
             }
         }
     });
