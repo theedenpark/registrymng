@@ -3,40 +3,36 @@ $('#forPlot').change(function(){
     if($val == 1)
     {
         $('#plot').show();
-        $('#plot_1').hide();
-        $('#plotList').attr('name', 'abc');
-        $('#plot_input').attr('name', 'plot_no');
+        $('#receipts').hide();
         
         $('#formBody').html('<div class="col-md-6 p-2"> <label for="">Primary Customer</label> <input type="text" name="primary_customer" class="form-control" required> </div> <div class="col-md-6 p-2"> <label for="">Secondary Customer</label> <input type="text" name="secondary_customer" class="form-control"> </div> <div class="col-md-6 p-2"> <label for="">Email</label> <input type="email" name="email" class="form-control" required> </div> <div class="col-md-6 p-2"> <label for="">Mobile No.</label> <input type="tel" name="mobile" class="form-control" required> </div> <div class="col-md-12 p-2"> <label for="">Address</label> <textarea name="address" class="form-control" required></textarea> </div>');
     }
     else if($val == 2)
     {
-        $('#plot_1').show();
+        $('#receipts').show();
         $('#plot').hide();
-        $('#plotList').attr('name', 'plot_no');
-        $('#plot_input').attr('name', 'abc');
     }
 });
 
 $('#phaseSelect').change(function(){
     $recT = $('#forPlot').val();
     $phase = $(this).val();
-    $('#plotList').html('<option>Please wait...</option>');
+    $('#receiptList').html('<option>Please wait...</option>');
 
     if($recT == 2)
     {
         $.ajax({
             type: "GET",
-            url: '/receipt/plots',
+            url: '/receipt/receipts',
             data: {phase: $phase},
             success: function(response){
                 if(response != false)
                 {
-                    $('#plotList').html(response);
+                    $('#receiptList').html(response);
                 }
                 else
                 {
-                    $('#plotList').html(response);
+                    $('#receiptList').html(response);
                 }
             }
        });
@@ -67,14 +63,14 @@ $('#plot_input').keyup(function(){
     });
 });
 
-$('#plotList').change(function(){
-    $plot = $(this).val();
+$('#receiptList').change(function(){
+    $receipt = $(this).val();
     $phase = $('#phaseSelect').val();
     $.ajax({
         type: "GET",
         url: '/receipt/checkPlotUser',
         data: {
-            plot: $plot,
+            receipt: $receipt,
             phase: $phase,
         },
         success: function(response){

@@ -14,6 +14,7 @@ class ReceiptFormController extends Controller
                 'receipt_type' => $req->receipt_type,
                 'phase' => $req->phase,
                 'plot_no' => $req->plot_no,
+                'installment_for' => $req->installment_for,
                 'receipt_date' => $req->receipt_date,
                 'receipt_no' => $req->receipt_no,
                 'primary_customer' => $req->primary_customer,
@@ -84,19 +85,19 @@ class ReceiptFormController extends Controller
         }
     }
 
-    public function plots(Request $req)
+    public function receipts(Request $req)
     {
         if(session()->has('InvoiceAdminID'))
         {
             $phase = $_GET['phase'];
-            $plots = DB::table('z_invoice_all')
+            $receipts = DB::table('z_invoice_all')
                 ->where('phase', $phase)
                 ->where('receipt_type', 1)
                 ->get();
-            if($plots)
+            if($receipts)
             {
-                return view('Invoice/Dashboard.plots', [
-                    'plots' => $plots
+                return view('Invoice/Dashboard.receipts', [
+                    'receipts' => $receipts
                     ]);
             }
             else
@@ -132,10 +133,10 @@ class ReceiptFormController extends Controller
     {
         if(session()->has('InvoiceAdminID'))
         {
-            $plot = $_GET['plot'];
+            $receipt = $_GET['receipt'];
             $phase = $_GET['phase'];
             $user = DB::table('z_invoice_all')
-                ->where('plot_no', $plot)
+                ->where('receipt_no', $receipt)
                 ->where('phase', $phase)
                 ->where('receipt_type', 1)
                 ->get();
@@ -160,19 +161,32 @@ class ReceiptFormController extends Controller
             $user = DB::table('z_invoice_all')
                 ->where('mobile', $mobile)
                 ->first();
-            $userHistory = DB::table('z_invoice_all')
-                            ->where('mobile', $mobile)
-                            ->orderBy('generated_on', 'desc')
-                            ->get();
+            // $userHistory = DB::table('z_invoice_all')
+            //                 ->where('mobile', $mobile)
+            //                 ->orderBy('generated_on', 'desc')
+            //                 ->get();
             $userTotal = DB::table('z_invoice_all')
                             ->where('mobile', $mobile)
                             ->sum('payment_amount');
+
+            $userBookings = DB::table('z_invoice_all')
+                            ->where('mobile', $mobile)
+                            ->where('receipt_type', 1)
+                            ->orderBy('generated_on', 'desc')
+                            ->get();
+
+            $allReceipts = DB::table('z_invoice_all')
+                            ->orderBy('generated_on', 'desc')
+                            ->get();
+
             if($user)
             {
                 return view('Invoice/Dashboard.userDetails', [
                     'user' => $user,
-                    'userHistory' => $userHistory,
-                    'userTotal' => $userTotal
+                    // 'userHistory' => $userHistory,
+                    'userTotal' => $userTotal,
+                    'userBookings' => $userBookings,
+                    'allReceipts' => $allReceipts
                     ]);
             }
             else

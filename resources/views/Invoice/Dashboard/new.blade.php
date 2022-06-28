@@ -34,10 +34,10 @@
                 <div id="result" style="font-size: 11px !important;"></div>
             </div>
 
-            <div class="col-md-12 p-2" id="plot_1" style="display: none;">
-                <label for="">Plot No.</label>
-                <select class="form-select" name="plot_no" id="plotList"> 
-                    <option disabled selected>Select Plot</option>
+            <div class="col-md-12 p-2" id="receipts" style="display: none;">
+                <label for="">Installment For</label>
+                <select class="form-select" name="installment_for" id="receiptList"> 
+                    <option disabled selected>Select Receipt</option>
                 </select>
             </div>
             <div class="col-md-6 p-2">

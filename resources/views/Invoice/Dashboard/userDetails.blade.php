@@ -1,3 +1,10 @@
+<style>
+    tr
+    {
+        font-size: 13px;
+        border: 1px solid #eee;
+    }
+</style>
 <div class="d-flex h-100">
     <div class="col-8">
         <div style="display: flex; flex-direction: column; height: 100%;">
@@ -10,7 +17,7 @@
                 </div>
             </div>
             <div style="flex: 1; overflow-y: auto; border-right: 1px solid #ddd; background: rgb(243, 243, 243);">
-                @foreach($userHistory as $value)
+                {{-- @foreach($userHistory as $value)
                 <div class="userChat">
                     <div class="text-center my-2">
                         <span class="badge badge-warning shadow-2" style="font-weight: 400; font-size: 11px;">
@@ -47,6 +54,117 @@
                     <a href="/receipt/all/print?id={{$value->receipt_id}}" target="_blank">
                         <button class="btn border-1 mx-3 text-capitalize shadow-2 text-primary bg-light"><i class="fa-solid fa-download"></i> &nbsp;Download Receipt</button>
                     </a>
+                </div>
+                @endforeach --}}
+
+                @foreach ($userBookings as $data)
+                <div>
+                    <div class="d-flex justify-content-between align-items-center p-2 text-light" style="cursor: pointer; border-bottom: 1px solid #eee; background: rgba(0,0,0,0.8);" onclick="showDetails(this)">
+                        <div style="font-size: 13px; font-weight: 400;">
+                            <i class="fa-solid fa-cube"></i> {{$data->receipt_format}}{{$data->receipt_no}}
+                        </div>
+                        <div><i class="fa-solid fa-chevron-down"></i></div>
+                    </div>
+                    <!-- Collapsed content -->
+                    <div style="display: none;" class="p-2">
+                        @php
+                            $id = $data->receipt_no;
+                        @endphp
+                        @foreach ($allReceipts as $row)
+                            {{-- Installment  --}}
+                            @if($row->installment_for == $id)
+                            <div class="card p-2 mb-2 shadow-1" style="font-size: 13px;">
+                                <div class="font-weight-bold p-2">
+                                    {{$row->payment_desc}}
+                                </div>
+                                <table class="table table-sm table-striped table-borderless m-0">
+                                    <tr>
+                                        <th width="30%">Receipt No</th>
+                                        <td width="5%">:</td>
+                                        <td>{{$row->receipt_no}}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Customer Name</th>
+                                        <td>:</td>
+                                        <td>
+                                            @if ($row->secondary_customer != "")
+                                                {{$row->secondary_customer}}
+                                            @else
+                                                {{$row->primary_customer}}
+                                            @endif
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th>Email</th><td>:</td><td>{{$row->email}}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Mobile</th><td>:</td><td>{{$row->mobile}}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Address</th><td>:</td><td>{{$row->address}}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Phase</th><td>:</td><td>{{$row->phase}}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Amount</th><td>:</td><td>₹{{$row->payment_amount}}</td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="100%">
+                                            <a href="/receipt/all/print?id={{$row->receipt_id}}" target="_blank" class="text-primary"><i class="fa-solid fa-download"></i> Download</a>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
+                            @endif
+                            {{-- Booking  --}}
+                            @if($row->receipt_no == $id)
+                            <div class="card p-2 mb-2 shadow-1" style="font-size: 13px;">
+                                <div class="font-weight-bold p-2">
+                                    {{$row->payment_desc}}
+                                </div>
+                                <table class="table table-sm table-striped table-borderless m-0">
+                                    <tr>
+                                        <th width="30%">Receipt No</th>
+                                        <td width="5%">:</td>
+                                        <td>{{$row->receipt_no}}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Customer Name</th>
+                                        <td>:</td>
+                                        <td>
+                                            @if ($row->secondary_customer != "")
+                                                {{$row->secondary_customer}}
+                                            @else
+                                                {{$row->primary_customer}}
+                                            @endif
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th>Email</th><td>:</td><td>{{$row->email}}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Mobile</th><td>:</td><td>{{$row->mobile}}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Address</th><td>:</td><td>{{$row->address}}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Phase</th><td>:</td><td>{{$row->phase}}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Amount</th><td>:</td><td>₹{{$row->payment_amount}}</td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="100%">
+                                            <a href="/receipt/all/print?id={{$row->receipt_id}}" target="_blank" class="text-primary"><i class="fa-solid fa-download"></i> Download</a>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
+                            @endif
+                        @endforeach
+                    </div>
                 </div>
                 @endforeach
             </div>

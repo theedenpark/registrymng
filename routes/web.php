@@ -119,7 +119,8 @@ Route::prefix('/receipt')->group(function () {
 
     Route::post('/all/edit/update', [ReceiptFormController::class, 'update']);
 
-    Route::get('/plots', [ReceiptFormController::class, 'plots']);
+    Route::get('/receipts', [ReceiptFormController::class, 'receipts']);
+
     Route::get('/checkPlotAvailability', [ReceiptFormController::class, 'checkPlotAvailability']);
     Route::get('/checkPlotUser', [ReceiptFormController::class, 'checkPlotUser']);
     Route::get('/getDetails', [ReceiptFormController::class, 'getDetails']);
