@@ -151,7 +151,7 @@
 <script src='https://cdn.datatables.net/1.10.9/js/jquery.dataTables.min.js'></script>
 <script id="rendered-js" >
     $(document).ready(function () {
-        $('#myDataTable').DataTable();
+        $('#myDataTable').DataTable({ order: [[7, 'desc']], });
     });
 </script>
 @endsection
