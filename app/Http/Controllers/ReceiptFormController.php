@@ -60,6 +60,7 @@ class ReceiptFormController extends Controller
                 'mobile' => $req->mobile,
                 'address' => $req->address,
                 'phase' => $req->phase,
+                'unit_price' => $req->unit_price,
                 'payment_amount' => $req->payment_amount,
                 'amount_words' => $req->amount_words,
                 'payment_desc' => $req->payment_desc,
