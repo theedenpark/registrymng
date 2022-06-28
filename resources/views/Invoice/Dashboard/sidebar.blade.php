@@ -1,6 +1,6 @@
 <div class="side__bar shadow-lg bg-light">
     <div class="nav__logo text-center p-3">
-        <a href="{{url('/')}}">
+        <a href="{{url('/receipt')}}">
             <img src="/assets/logo/logo.svg" alt="">
             <!-- Receipt Manager -->
         </a>

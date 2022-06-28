@@ -140,6 +140,24 @@ class InvoiceController extends Controller
         }
     }
 
+    public function edit(){
+        if(session()->has('InvoiceAdminID'))
+        {
+            $id = $_GET['id'];
+            $data = DB::table('z_invoice_all')
+                    ->where('receipt_id', $id)
+                    ->first();
+            return view('/Invoice/Dashboard.edit', [
+                'data' => $data
+            ]);
+        }
+        else
+        {
+            return redirect('/edit');
+        }
+    }
+
+
     public function print(){
         if(session()->has('InvoiceAdminID'))
         {

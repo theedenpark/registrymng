@@ -105,41 +105,43 @@
         <div class="d-flex justify-content-between align-items-center py-1 px-2 bg-dark" style="border-radius: 7px 7px 0px 0px; cursor: move;">
             <div style="font-size: 12px; color: lightgray;"><i class="fa-solid fa-calculator"></i> Calculator</div>
             <div>
-            <button class="closeCalculator btn btn-danger shadow-0 px-1 py-0 m-0"
-                style="position: relative; top: -4px;">
-                <i class="fas fa-times"></i>
-            </button>
+                <button class="closeCalculator btn btn-danger shadow-0 px-1 py-0 m-0"
+                    style="position: relative; top: -4px;">
+                    <i class="fas fa-times"></i>
+                </button>
             </div>
         </div>
-			<div id="result">
-				<div id="history">
-					<p id="history-value"></p>
-				</div>
-				<div id="output">
-					<p id="output-value"></p>
-				</div>
-			</div>
-			<div id="keyboard" class="text-center">
-				<button class="operator" id="clear">C</button>
-				<button class="operator" id="backspace">CE</button>
-				<button class="operator" id="%">%</button>
-				<button class="operator" id="÷">&#247;</button>
-				<button class="number" id="7">7</button>
-				<button class="number" id="8">8</button>
-				<button class="number" id="9">9</button>
-				<button class="operator" id="×">&times;</button>
-				<button class="number" id="4">4</button>
-				<button class="number" id="5">5</button>
-				<button class="number" id="6">6</button>
-				<button class="operator" id="-">-</button>
-				<button class="number" id="1">1</button>
-				<button class="number" id="2">2</button>
-				<button class="number" id="3">3</button>
-				<button class="operator" id="+">+</button>
-				<button class="empty" id="empty"></button>
-				<button class="number" id="0">0</button>
-				<button class="empty" id="empty"></button>
-				<button class="operator" id="=">=</button>
-			</div>
-		</div>
+        <div id="result">
+            <div id="history">
+                <p id="history-value"></p>
+            </div>
+            <div id="output">
+                <p id="output-value"></p>
+            </div>
+        </div>
+        <div id="keyboard" class="text-center">
+            <button class="operator" id="clear">C</button>
+            <button class="operator" id="backspace">CE</button>
+            <button class="operator" id="%">%</button>
+            <button class="operator" id="÷">&#247;</button>
+            <button class="number" id="7">7</button>
+            <button class="number" id="8">8</button>
+            <button class="number" id="9">9</button>
+            <button class="operator" id="×">&times;</button>
+            <button class="number" id="4">4</button>
+            <button class="number" id="5">5</button>
+            <button class="number" id="6">6</button>
+            <button class="operator" id="-">-</button>
+            <button class="number" id="1">1</button>
+            <button class="number" id="2">2</button>
+            <button class="number" id="3">3</button>
+            <button class="operator" id="+">+</button>
+            <button class="empty" id="empty"></button>
+            <button class="number" id="0">0</button>
+            <button class="empty" id="empty"></button>
+            <button class="operator" id="=">=</button>
+        </div>
+    </div>
+
+
 @endsection

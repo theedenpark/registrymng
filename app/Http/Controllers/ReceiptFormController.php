@@ -46,6 +46,43 @@ class ReceiptFormController extends Controller
         }
     }
 
+    public function update(Request $req){
+        if(session()->has('InvoiceAdminID'))
+        {
+            $dataset = [
+                'receipt_type' => $req->receipt_type,
+                'receipt_date' => $req->receipt_date,
+                'primary_customer' => $req->primary_customer,
+                'secondary_customer' => $req->secondary_customer,
+                'plot_no' => $req->plot_no,
+                'unit_size' => $req->unit_size,
+                'email' => $req->email,
+                'mobile' => $req->mobile,
+                'address' => $req->address,
+                'phase' => $req->phase,
+                'payment_amount' => $req->payment_amount,
+                'amount_words' => $req->amount_words,
+                'payment_desc' => $req->payment_desc,
+            ];
+            $q = DB::table('z_invoice_all')
+                ->where('receipt_no', $req->receipt_no)
+                ->update($dataset);
+
+            if($q)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+        else
+        {
+            return view('/Invoice.index');
+        }
+    }
+
     public function plots(Request $req)
     {
         if(session()->has('InvoiceAdminID'))

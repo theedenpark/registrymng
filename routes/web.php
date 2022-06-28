@@ -110,11 +110,15 @@ Route::prefix('/receipt')->group(function () {
     Route::get('/all', [InvoiceController::class, 'all']);
     Route::get('/customers', [InvoiceController::class, 'customers']);
     Route::get('/all/print', [InvoiceController::class, 'print']);
+    Route::get('/all/edit', [InvoiceController::class, 'edit']);
     Route::get('/profile', [InvoiceController::class, 'Profile']);
     Route::get('/logout', [InvoiceController::class, 'logout']);
 
     //form submission
     Route::post('/new/generate', [ReceiptFormController::class, 'generateReceipt']);
+
+    Route::post('/all/edit/update', [ReceiptFormController::class, 'update']);
+
     Route::get('/plots', [ReceiptFormController::class, 'plots']);
     Route::get('/checkPlotAvailability', [ReceiptFormController::class, 'checkPlotAvailability']);
     Route::get('/checkPlotUser', [ReceiptFormController::class, 'checkPlotUser']);

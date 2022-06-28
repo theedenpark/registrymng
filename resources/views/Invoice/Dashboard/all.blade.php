@@ -16,6 +16,7 @@
                 <th>Phase</th>
                 <th>Amount</th>
                 <th>Generated_On</th>
+                <th class="text-center">Edit</th>
                 <th class="text-center">View</th>
                 <th class="text-center">Download</th>
             </tr>
@@ -44,6 +45,11 @@
                 <td>{{$data->phase}}</td>
                 <td>₹{{$data->payment_amount}}</td>
                 <td>{{$data->generated_on}}</td>
+                <td class="text-center">
+                    <a href="/receipt/all/edit?id={{$data->receipt_id}}" target="_blank">
+                        <i class="fa-solid fa-edit text-primary" style="cursor: pointer;" title="Edit"></i>
+                    </a>
+                </td>
                 <td class="text-center">
                     <i class="fa-regular fa-eye text-primary" 
                     onclick="viewDetails(

@@ -302,64 +302,7 @@ class PortalController extends Controller
         {
             return false;
         }
-
-        // $otp = rand(11111, 99999);
-        // $email = $req->email;
-
-        // try {
-        //     if($this->sendMail($otp, $email)) {
-        //         return 'success';
-        //     } else {
-        //         return "not send";
-        //     }
-        // } 
-        // catch (Exception $e) 
-        // {
-        //     $data['success'] = false;
-        //     $data['message'] = 'Message could not be sent. Mailer Error: {$mail->ErrorInfo}';
-        //     return $data;
-        // }
     }
-
-    // public function sendMail($otp, $email)
-    // {
-    //     try {
-    //         require '../vendor/autoload.php';
-    //         //Create an instance; passing `true` enables exceptions
-    //         $mail = new PHPMailer(true);
-    //         //Server settings
-    //         $mail->SMTPDebug = 2;                    
-    //         $mail->isSMTP();                                          
-    //         $mail->Host       = 'smtp.gmail.com';                   
-    //         $mail->SMTPAuth   = true;                                
-    //         $mail->Username   = 'info@ewenrealtors.com';                
-    //         $mail->Password   = 'ewen@123Park';                       
-    //         $mail->SMTPSecure = 'tls';           
-    //         $mail->Port       = 587;    
-    //         $message = 'The OTP is '.$otp;                               
-        
-    //         //Recipients
-    //         $mail->setFrom('info@ewenrealtors.com', 'Ewen Realtors');
-    //         $mail->addAddress($email, 'OTP Verification');  
-            
-        
-    //         $mail->isHTML(true);                        
-    //         $mail->Subject = 'OTP Verification';
-    //         $mail->Body    = $message;
-    //         $mail->AltBody = 'This is the body in plain text for non-HTML mail clients';
-        
-    //         $mail->send();
-    //         $mail->clearAllRecipients();
-    //         $data['success'] = true;
-    //         return $data;          
-    //     } 
-    //     catch (Exception $e) 
-    //     {
-    //         $data['success'] = false;
-    //         $data['message'] = 'Message could not be sent. Mailer Error: {$mail->ErrorInfo}';
-    //         return false;
-    //     }
-    // }
 
     public function addRevenueVillage(Request $req)
     {
