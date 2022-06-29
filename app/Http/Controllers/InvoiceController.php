@@ -33,7 +33,7 @@ class InvoiceController extends Controller
                             ->where('receipt_type', 2)
                             ->count();
             $totalCustomers = DB::table('z_invoice_all')
-                            ->groupBy('mobile')
+                            ->distinct('email')
                             ->count();
             $totalBAmount = DB::table('z_invoice_all')
                             ->where('receipt_type', 1)
