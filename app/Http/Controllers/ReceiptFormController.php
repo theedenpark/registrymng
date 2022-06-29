@@ -16,6 +16,7 @@ class ReceiptFormController extends Controller
                 'plot_no' => $req->plot_no,
                 'installment_for' => $req->installment_for,
                 'receipt_date' => $req->receipt_date,
+                'next_installment' => $req->next_installment,
                 'receipt_no' => $req->receipt_no,
                 'primary_customer' => $req->primary_customer,
                 'secondary_customer' => $req->secondary_customer,
@@ -53,6 +54,7 @@ class ReceiptFormController extends Controller
             $dataset = [
                 'receipt_type' => $req->receipt_type,
                 'receipt_date' => $req->receipt_date,
+                'next_installment' => $req->next_installment,
                 'primary_customer' => $req->primary_customer,
                 'secondary_customer' => $req->secondary_customer,
                 'plot_no' => $req->plot_no,

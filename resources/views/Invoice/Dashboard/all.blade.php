@@ -10,6 +10,7 @@
                 <th>Type</th>
                 <th>Receipt_No.</th>
                 <th>R_Date</th>
+                <th>Next_Installment</th>
                 <th>Customer</th>
                 {{-- <th>Plot</th> --}}
                 <th>Phone</th>
@@ -33,6 +34,24 @@
                 </td>
                 <td>{{$data->receipt_format}}{{$data->receipt_no}}</td>
                 <td>{{$data->receipt_date}}</td>
+                <td>
+                    @php
+                        $cDate = time();
+                        $expiry = strtotime($data->next_installment);
+                    @endphp
+                    @if($cDate > $expiry)
+                    {{-- if expired  --}}
+                        <font class="text-danger">
+                            {{ date("F j, Y", $expiry) }}
+                        </font>
+                    @else
+                    {{-- if not expired  --}}
+                        <font class="text-success">
+                            {{ date("F j, Y", $expiry) }}
+                        </font>
+                    @endif
+                    {{-- {{$data->next_installment}} --}}
+                </td>
                 <td>
                     @if($data->secondary_customer != "") 
                     {{$data->secondary_customer}}

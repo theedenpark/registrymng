@@ -40,9 +40,13 @@
                     <option disabled selected>Select Receipt</option>
                 </select>
             </div>
-            <div class="col-md-6 p-2">
-                <label for="">Date</label>
+            <div class="col-md-3 p-2">
+                <label for="">Receipt Date</label>
                 <input type="text" name="receipt_date" class="form-control" id="datepicker" autocomplete="off" required>
+            </div>
+            <div class="col-md-3 p-2">
+                <label for="">Next Installment Date</label>
+                <input type="text" name="next_installment" class="form-control" id="nextInstallment" autocomplete="off" required>
             </div>
             <div class="col-md-6 p-2">
                 <label for="">Receipt No.</label>
@@ -150,6 +154,7 @@
     //DatePicker
     $(function() {
       $( "#datepicker" ).datepicker({ dateFormat: 'dd-mm-yy' });
+      $( "#nextInstallment" ).datepicker({ dateFormat: 'dd-mm-yy' });
     });
 </script>
 @endsection

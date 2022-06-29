@@ -23,11 +23,15 @@
                     <label for="">Receipt Type <font style="font-size: 10px;">(1=Booking, 2=Installment)</font></label>
                     <input type="text" class="form-control" value="{{$data->receipt_type}}" name="receipt_type">
                 </div>
-                <div class="col-md-4 p-2">
+                <div class="col-md-3 p-2">
                     <label for="">Receipt Date</label>
                     <input type="text" class="form-control" value="{{$data->receipt_date}}" name="receipt_date" id="datepicker" autocomplete="off" required>
                 </div>
-                <div class="col-md-4 p-2">
+                <div class="col-md-3 p-2">
+                    <label for="">Next Installment Date</label>
+                    <input type="text" class="form-control" value="{{$data->next_installment}}" name="next_installment" id="nextInstallment" autocomplete="off" required>
+                </div>
+                <div class="col-md-2 p-2">
                     <label for="">Receipt No</label>
                     <input type="text" class="form-control" value="{{$data->receipt_no}}" readonly name="receipt_no">
                 </div>
@@ -138,6 +142,7 @@
     //DatePicker
     $(function() {
       $( "#datepicker" ).datepicker({ dateFormat: 'dd-mm-yy' });
+      $( "#nextInstallment" ).datepicker({ dateFormat: 'dd-mm-yy' });
     });
 </script>
 @endsection
