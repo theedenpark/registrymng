@@ -1,0 +1,75 @@
+body
+{
+    font-size: 12px;
+}
+a, a:hover
+{
+    color: inherit;
+}
+#employee_nav
+{
+    color: rgb(181, 181, 181);
+    /* list-style: none; */
+    font-size: 12px;
+}
+#employee_nav li
+{
+    margin: 7px 0px;
+}
+#employee_nav li:hover
+{
+    color: #dc143c;
+}
+
+table.dataTable.no-footer
+{
+    border: none !important;
+}
+
+.dataTables_length, .myDataTable_filter label, .dataTables_info, #myDataTable_paginate
+{
+    font-size: 11px !important;
+}
+
+.dataTables_filter label input
+{
+    font-size: 11px;
+    padding: 0;
+    outline: none;
+}
+
+thead tr
+{
+    font-weight: 400 !important;
+}
+
+.paginate_button 
+{
+    border-radius: 50px !important;
+    background-color: #eef;
+}
+
+#myDataTable_filter label input
+{
+    border: 1px solid #bbb;
+    padding: 3px 8px;
+    border-radius: 4px;
+    outline: none;
+}
+
+.dataTables_length label select
+{
+    border: 1px solid #bbb;
+    border-radius: 4px;
+    padding: 3px 4px;
+    outline: none;
+}
+
+#myDataTable tbody, #myDataTable td, #myDataTable tfoot, #myDataTable th, #myDataTable thead, #myDataTable tr {
+    border: 1px solid #eee !important;
+    border-color: inherit;
+}
+
+.table>tbody {
+    vertical-align:middle;
+}

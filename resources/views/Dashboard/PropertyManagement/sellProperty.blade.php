@@ -81,7 +81,7 @@
                             <tbody id="buyerContainer">
                                 <tr>
                                     <td width="80%">
-                                        <select name="buyer_id[]" class="form-select" required>
+                                        <select name="buyer_id[]" class="form-select">
                                             <option value="">Select Buyer</option>
                                             @foreach($Buyers as $buyer)
                                             <option value="{{$buyer->username}}">{{$buyer->username}}</option>
@@ -118,7 +118,7 @@
                             <tbody id="witnessContainer">
                                 <tr>
                                     <td width="80%">
-                                        <select name="witness_id[]" class="form-select" required>
+                                        <select name="witness_id[]" class="form-select">
                                             <option value="">Select Witness</option>
                                             @foreach($Witnesses as $witness)
                                             <option value="{{$witness->username}}">{{$witness->username}}</option>
@@ -153,10 +153,10 @@
                         <label for="">Returned Rate/Amount (If registry get cancelled)</label>
                         <div class="d-flex justify-content-between">
                             <div class="col-8">
-                                <input type="number" class="formFields" name="return_rate" required>
+                                <input type="number" class="formFields" name="return_rate">
                             </div>
                             <div class="col-4 px-1">
-                                <select name="ret_val_unit" class="form-select" required>
+                                <select name="ret_val_unit" class="form-select">
                                     <option value="rate">Rate</option>
                                     <option value="amount">Amount</option>
                                 </select>
@@ -165,7 +165,7 @@
                     </div>
                     <div class="col-md-12 mb-3">
                         <label for="">Cancellation Terms</label>
-                        <textarea name="cancellation_terms" class="formFields" required></textarea>
+                        <textarea name="cancellation_terms" class="formFields"></textarea>
                     </div>
                 </div>
                 <!-- End of Row  -->
@@ -183,7 +183,7 @@
                                 </div>
                                 <div class="px-2" style="flex: 1;">
                                     <input type="text" name="agent_id" class="searchAgent" placeholder="Search Agent"
-                                        autocomplete="off" required>
+                                        autocomplete="off">
                                 </div>
                             </div>
                             <div class="agentList"
@@ -198,7 +198,7 @@
                     </div>
                     <div class="col-md-6 mb-3">
                         <label for="">Agent Expense (₹)</label>
-                        <input type="number" class="formFields" name="agent_exp" required>
+                        <input type="number" class="formFields" name="agent_exp">
                     </div>
 
                     <div class="col-md-6">
@@ -210,7 +210,7 @@
                                 </div>
                                 <div class="px-2" style="flex: 1;">
                                     <input name="draftmen_id" type="text" class="searchDraftmen"
-                                        placeholder="Search Draftmen" autocomplete="off" required>
+                                        placeholder="Search Draftmen" autocomplete="off">
                                 </div>
                             </div>
                             <div class="draftList"
@@ -225,32 +225,32 @@
                     </div>
                     <div class="col-md-6 mb-3">
                         <label for="">Draftmen/Leagal Expense (₹)</label>
-                        <input type="number" class="formFields" name="draftmen_exp" required>
+                        <input type="number" class="formFields" name="draftmen_exp">
                     </div>
 
                     <div class="col-md-3 mb-3">
                         <label for="">Stamp Duty</label>
-                        <input type="number" class="formFields" value="100" name="stamp_duty" required>
+                        <input type="number" class="formFields" value="100" name="stamp_duty">
                     </div>
 
                     <div class="col-md-3 mb-3">
                         <label for="">Registration Fees</label>
-                        <input type="number" class="formFields" value="100" name="reg_fees" required>
+                        <input type="number" class="formFields" value="100" name="reg_fees">
                     </div>
 
                     <div class="col-md-3 mb-3">
                         <label for="">No. of Electronic Files</label>
-                        <input type="number" class="formFields" value="1" name="electronic_files" required>
+                        <input type="number" class="formFields" value="1" name="electronic_files">
                     </div>
 
                     <div class="col-md-3 mb-3">
                         <label for="">Electronic File Processing Fees</label>
-                        <input type="number" class="formFields" value="1" name="electronic_files_fee" required>
+                        <input type="number" class="formFields" value="1" name="electronic_files_fee">
                     </div>
 
                     <div class="col-md-12 mb-3">
                         <label for="">Description</label>
-                        <textarea name="description" class="formFields" required></textarea>
+                        <textarea name="description" class="formFields"></textarea>
                     </div>
 
                 </div>
@@ -262,12 +262,12 @@
                 <div class="row m-0 p-4">
                     <div class="col-md-6 mb-3">
                         <label for="">Deposit Date</label>
-                        <input type="date" class="formFields" name="deposit_date" required>
+                        <input type="date" class="formFields" name="deposit_date">
                     </div>
 
                     <div class="col-md-6 mb-2">
                         <label for="">Total Amount</label>
-                        <input type="number" class="formFields" required placeholder="₹0.00" id="total"
+                        <input type="number" class="formFields" placeholder="₹0.00" id="total"
                             name="total_amount">
                     </div>
 
@@ -280,7 +280,7 @@
                                 </div>
                                 <div class="px-2" style="flex: 1;">
                                     <input name="bank_detail_id" type="text" class="searchBanks"
-                                        placeholder="Search Banks" autocomplete="off" required>
+                                        placeholder="Search Banks" autocomplete="off">
                                 </div>
                             </div>
                             <div class="allBanks"
@@ -307,7 +307,7 @@
                             <tbody id="TextBoxContainer">
                                 <tr>
                                     <td>
-                                        <select name="pay_mode[]" class="formFields" required>
+                                        <select name="pay_mode[]" class="formFields">
                                             <option value="bank" selected>Bank</option>
                                             <option value="cash">Cash</option>
                                             <option value="cheque">Cheque</option>
@@ -316,10 +316,10 @@
                                     </td>
                                     <td>
                                         <input name="pay_mode_amount[]" type="number" value="" class="formFields"
-                                            required />
+                                         />
                                     </td>
                                     <td>
-                                        <input name="transaction_id[]" required type="text" value=""
+                                        <input name="transaction_id[]" type="text" value=""
                                             class="formFields" />
                                     </td>
                                     <td class="text-center">
@@ -343,7 +343,7 @@
 
                     <div class="col-md-12 mb-3">
                         <label for="">Payment Description</label>
-                        <textarea name="pay_desc" class="formFields" required></textarea>
+                        <textarea name="pay_desc" class="formFields"></textarea>
                     </div>
                 </div>
                 <!-- End of Row  -->
@@ -460,7 +460,7 @@
         <form actionUrl="/store" method="post" class="my-2 p-2" id="sendMailToDraftment">
             @csrf
             <input type="search" placeholder="Search Mail ID" id="searchMail" name="recEmail" class="p-2"
-                autocomplete="off" required>
+                autocomplete="off">
             <div class="allMails rounded-3 shadow-5" style="display: none; max-height: 100px; overflow-y: auto;">
                 @foreach($allMail as $mail)
                 <div class="mailId px-2 py-1 rounded-3" onclick="getmail(`{{$mail->email}}`)">{{$mail->aadhar_no}},

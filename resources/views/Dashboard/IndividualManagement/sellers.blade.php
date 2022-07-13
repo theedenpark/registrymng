@@ -19,19 +19,19 @@
                 <div class="row m-0 py-4">
                     <div class="col-md-4 mb-3">
                         <label for="">Enter Aadhar No.</label>
-                        <input type="text" class="formFields" name="aadhar" required>
+                        <input type="text" class="formFields" name="aadhar">
                     </div>
                     <div class="col-md-4 mb-3">
                         <label for="">Username</label>
-                        <input type="text" class="formFields" placeholder="Enter User Name (Ex: Shyam S/O Ram)" name="username" required>
+                        <input type="text" class="formFields" placeholder="Enter User Name (Ex: Shyam S/O Ram)" name="username">
                     </div>
                     <div class="col-md-4 mb-3">
                         <label for="">Mobile</label>
-                        <input type="tel" class="formFields" placeholder="Enter Mobile" name="mobile" required>
+                        <input type="tel" class="formFields" placeholder="Enter Mobile" name="mobile">
                     </div>
                     <div class="col-md-4 mb-3">
                         <label for="">Email</label>
-                        <input type="email" class="formFields" name="email" required>
+                        <input type="email" class="formFields" name="email">
                     </div>
                     <div class="col-md-4 mb-3">
                         <label for="">Gender</label>
@@ -42,27 +42,27 @@
                     </div>
                     <div class="col-md-4 mb-3">
                         <label for="">Date-of-Birth</label>
-                        <input type="date" class="formFields" name="dob" required>
+                        <input type="date" class="formFields" name="dob">
                     </div>
                     <div class="col-md-12 mb-3">
                         <label for="">Address</label>
-                        <input type="address" class="formFields" name="address" required>
+                        <input type="address" class="formFields" name="address">
                     </div>
                     <div class="col-md-4 mb-3">
                         <label for="">City</label>
-                        <input type="text" class="formFields" name="city" required>
+                        <input type="text" class="formFields" name="city">
                     </div>
                     <div class="col-md-4 mb-3">
                         <label for="">State</label>
-                        <input type="text" class="formFields" name="state" required>
+                        <input type="text" class="formFields" name="state">
                     </div>
                     <div class="col-md-4 mb-3">
                         <label for="">PIN Code</label>
-                        <input type="number" class="formFields" name="pin" required>
+                        <input type="number" class="formFields" name="pin">
                     </div>
                     <div class="col-md-12 mb-3">
                         <label for="">Upload ID</label>
-                        <input type="file" class="form-control" name="id_proof" required>
+                        <input type="file" class="form-control" name="id_proof">
                         <p class="pt-2 text-danger" style="font-size: 12px;">Note: Image name must be 10-11 characters long.</p>
                     </div>
                     <input type="text" value="3" name="user_type" style="display: none;">

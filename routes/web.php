@@ -5,6 +5,8 @@ use App\Http\Controllers\PortalDataController;
 use App\Http\Controllers\MailController;
 use App\Http\Controllers\InvoiceController;
 use App\Http\Controllers\ReceiptFormController;
+use App\Http\Controllers\EmployeeController;
+use App\Http\Controllers\EmployeeFormController;
 use App\Http\Controllers\UserLogin;
 use Illuminate\Support\Facades\Route;
 
@@ -124,4 +126,15 @@ Route::prefix('/receipt')->group(function () {
     Route::get('/checkPlotAvailability', [ReceiptFormController::class, 'checkPlotAvailability']);
     Route::get('/checkPlotUser', [ReceiptFormController::class, 'checkPlotUser']);
     Route::get('/getDetails', [ReceiptFormController::class, 'getDetails']);
+});
+
+Route::prefix('/employee')->group(function () {
+    Route::get('/', [EmployeeController::class, 'Home']);
+    Route::get('/all', [EmployeeController::class, 'all']);
+    Route::get('/groups', [EmployeeController::class, 'Groups']);
+
+    //forms
+    Route::post('/addGroup', [EmployeeFormController::class, 'addGroup']);
+    Route::post('/addEmployee', [EmployeeFormController::class, 'addEmployee']);
+
 });

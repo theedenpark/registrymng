@@ -28,7 +28,9 @@ class ReceiptFormController extends Controller
                 'payment_amount' => $req->payment_amount,
                 'amount_words' => $req->amount_words,
                 'payment_desc' => $req->payment_desc,
-                'unit_size' => $req->unit_size
+                'unit_size' => $req->unit_size,
+                'salesperson_id' => $req->salesperson_id,
+                'guide_id' => $req->guide_id
             ];
             $q = DB::table('z_invoice_all')
                 ->insert($dataset);

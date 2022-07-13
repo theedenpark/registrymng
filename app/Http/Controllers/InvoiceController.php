@@ -91,11 +91,20 @@ class InvoiceController extends Controller
             $getLastReceiptNo = DB::table('z_invoice_all')
                                 ->orderBy('receipt_id', 'desc')
                                 ->first();
-
+            $sales = DB::table('x_employee')
+                        ->where('group_id', 1)
+                        ->orderBy('e_name', 'asc')
+                        ->get();
+            $guides = DB::table('x_employee')
+                        ->where('group_id', '!=', 2)
+                        ->orderBy('e_name', 'asc')
+                        ->get();
             return view('/Invoice/Dashboard.new', [
                 'profile' => $profile,
                 'lastReceipt' =>$getLastReceiptNo,
-                'data' => $data
+                'data' => $data,
+                'sales' => $sales,
+                'guides' => $guides,
             ]);
         }
         else

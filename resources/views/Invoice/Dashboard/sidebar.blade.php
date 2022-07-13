@@ -57,6 +57,17 @@
                     </div>    
                 </a>
             </li>
+            <li>
+                <a class="" href="{{url('/employee')}}" target="_blank">
+                    <div class="d-flex">
+                        <div class="col-1 text-center">
+                            {{-- <img src="/assets/icons/add-user.png" alt="" style="height: 18px;"> --}}
+                            <i class="fa-solid fa-users"></i>
+                        </div>
+                        <div class="px-2">Employee Management</div>
+                    </div>    
+                </a>
+            </li>
             <li class="mb-5 pb-5">
                 <a class="" href="{{url('/receipt/logout')}}" onclick="return confirm('Are you sure to log out?')">
                     <div class="d-flex">
