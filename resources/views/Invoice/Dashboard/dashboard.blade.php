@@ -4,7 +4,7 @@
 <div class="container col-md-12">
     <h3 class="text-dark">Dashboard</h3>
 
-    <div class="row m-0" style="height: 85vh;">
+    {{-- <div class="row m-0" style="height: 85vh;">
         <div class="col-md-4 p-0">
             <div style="display: flex; flex-direction: column; height: 100%;">
                 <div class="p-2" style="height: 50%;">
@@ -60,6 +60,97 @@
                 </div>
             </div>
         </div>
+    </div> --}}
+
+    <a href="/receipt/new">
+        <div class="card py-2 px-3 my-3 bg-info">
+            <div class="d-flex align-items-center justify-content-between">
+                <div class="text-light">
+                    Add New Receipt
+                </div>
+                <div class="text-light">
+                        <i class="fas fa-plus"></i>
+                </div>
+            </div>
+        </div>
+    </a>
+
+    <div class="card py-2 px-3 my-3" style="font-size: 11px; border: 1px solid #eee;">
+        <div class="d-flex align-items-center justify-content-between">
+            <div class="">
+                <i class="fas fa-file-alt"></i>&nbsp; Total Receipts
+            </div>
+            <div class="" style="font-size: 15px;">
+                {{$totalReceipt}}
+            </div>
+        </div>
     </div>
+
+    <div class="card py-2 px-3 my-3" style="font-size: 11px; border: 1px solid #eee;">
+        <div class="d-flex align-items-center justify-content-between">
+            <div class="">
+                <i class="fas fa-user-group"></i>&nbsp; Total Customers
+            </div>
+            <div class="" style="font-size: 15px;">
+                {{$totalCustomers}}
+            </div>
+        </div>
+    </div>
+
+    <div class="card py-2 px-3 my-3" style="font-size: 11px; border: 1px solid #eee;">
+        <div class="d-flex align-items-center justify-content-between">
+            <div class="">
+                <i class="fas fa-file-invoice"></i>&nbsp; Total No. of Bookings
+            </div>
+            <div class="" style="font-size: 15px;">
+                {{$totalBookings}}
+            </div>
+        </div>
+    </div>
+
+    <div class="card py-2 px-3 my-3" style="font-size: 11px; border: 1px solid #eee;">
+        <div class="d-flex align-items-center justify-content-between">
+            <div class="">
+                <i class="fas fa-indian-rupee-sign"></i>&nbsp; Total Booking Amount Received
+            </div>
+            <div class="text-info" style="font-size: 15px;">
+                ₹{{number_format($totalBAmount)}}
+            </div>
+        </div>
+    </div>
+
+    <div class="card py-2 px-3 my-3" style="font-size: 11px; border: 1px solid #eee;">
+        <div class="d-flex align-items-center justify-content-between">
+            <div class="">
+                <i class="fas fa-file-invoice"></i>&nbsp; Total No. of Installments
+            </div>
+            <div class="" style="font-size: 15px;">
+                {{$totalInstallments}}
+            </div>
+        </div>
+    </div>
+
+    <div class="card py-2 px-3 my-3" style="font-size: 11px; border: 1px solid #eee;">
+        <div class="d-flex align-items-center justify-content-between">
+            <div class="">
+                <i class="fas fa-indian-rupee-sign"></i>&nbsp; Total Installment Amount Received
+            </div>
+            <div class="text-primary" style="font-size: 15px;">
+                ₹{{number_format($totalIAmount)}}
+            </div>
+        </div>
+    </div>
+
+    <div class="card py-2 px-3 my-3" style="font-size: 11px; border: 1px solid #eee;">
+        <div class="d-flex align-items-center justify-content-between font-weight-bold">
+            <div class="">
+                <i class="fas fa-wallet"></i>&nbsp; Total Amount Received
+            </div>
+            <div class="text-success" style="font-size: 15px;">
+                ₹{{number_format($totalAmount)}}
+            </div>
+        </div>
+    </div>
+
 </div>
 @endsection

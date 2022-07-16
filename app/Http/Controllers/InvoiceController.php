@@ -41,6 +41,8 @@ class InvoiceController extends Controller
             $totalIAmount = DB::table('z_invoice_all')
                             ->where('receipt_type', 2)
                             ->sum('payment_amount');
+            $totalAmount = DB::table('z_invoice_all')
+                            ->sum('payment_amount');
             return view('/Invoice/Dashboard.dashboard', [
                 'totalReceipt' => $totalReceipt,
                 'totalBookings' => $totalBookings, 
@@ -48,6 +50,7 @@ class InvoiceController extends Controller
                 'totalCustomers' => $totalCustomers,
                 'totalBAmount' => $totalBAmount,
                 'totalIAmount' => $totalIAmount,
+                'totalAmount' => $totalAmount,
             ]);
         }
         else

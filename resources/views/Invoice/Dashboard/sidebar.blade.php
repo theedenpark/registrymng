@@ -81,7 +81,7 @@
         </ul>
 
         <div class="mt-5 pt-5 text-center" style="font-size:10px;">
-            Receipt Manager &copy;EwenRealtors.
+            Receipt Manager<sup>&copy;</sup> EwenRealtors.
         </div>
     </div>
 </div>
