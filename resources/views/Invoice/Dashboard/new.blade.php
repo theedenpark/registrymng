@@ -90,7 +90,7 @@
                 <label for="">Unit Size in Sq. Yards</label>
                 <input type="text" name="unit_size" class="form-control" required>
             </div>
-            <div class="col-md-6 p-2">
+            {{-- <div class="col-md-6 p-2">
                 <label for="">Select Sales Person</label>
                 <select name="salesperson_id" id="" class="form-select">
                     <option selected disabled>Select Employee</option>
@@ -107,7 +107,7 @@
                         <option value="{{$guide->employee_id}}">{{$guide->e_name}}</option>
                     @endforeach
                 </select>
-            </div>
+            </div> --}}
 
             <div class="col-md-12 p-2">
                 <button class="btn btn-primary btn-lg text-capitalize" id="generateBtn">Generate Receipt</button>
