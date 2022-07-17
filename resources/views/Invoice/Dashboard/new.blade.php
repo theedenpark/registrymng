@@ -27,7 +27,7 @@
                     <option value="Hill Village">Hill Village</option>
                 </select>
             </div>
-
+ 
             <div class="col-md-12 p-2" id="plot" style="display: none;">
                 <label for="">Plot No.</label>
                 <input type="number" min="0" name="plot_no" class="form-control" id="plot_input">
