@@ -18,7 +18,6 @@
                 <th>Phone</th>
                 <th>Phase</th>
                 <th>Amount</th>
-                <th>Generated_On</th>
                 <th class="text-center">Edit</th>
                 <th class="text-center">View</th>
                 <th class="text-center">Download</th>
@@ -34,10 +33,10 @@
                     Installment
                     @endif
                 </td>
-                <td class="text-center">{{$data->plot_no}}</td>
+                <td class="text-center font-weight-bold">{{$data->plot_no}}</td>
                 <td>{{$data->receipt_format}}{{$data->receipt_no}}</td>
                 <td>{{$data->receipt_date}}</td>
-                <td>
+                <td class="text-center">
                     @php
                         $cDate = time();
                         $expiry = strtotime($data->next_installment);
@@ -72,8 +71,7 @@
                 {{-- <td>{{$data->plot_no}}</td> --}}
                 <td>{{$data->mobile}}</td>
                 <td>{{$data->phase}}</td>
-                <td>₹{{$data->payment_amount}}</td>
-                <td>{{$data->generated_on}}</td>
+                <td>₹{{number_format($data->payment_amount)}}</td>
                 <td class="text-center">
                     <a href="/receipt/all/edit?id={{$data->receipt_id}}" target="_blank">
                         <i class="fa-solid fa-edit text-primary" style="cursor: pointer;" title="Edit"></i>
@@ -180,7 +178,7 @@
 <script src='https://cdn.datatables.net/1.10.9/js/jquery.dataTables.min.js'></script>
 <script id="rendered-js" >
     $(document).ready(function () {
-        $('#myDataTable').DataTable({ order: [[10, 'desc']], });
+        $('#myDataTable').DataTable({ order: [[2, 'desc']], });
     });
 </script>
 @endsection
