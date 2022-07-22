@@ -8,6 +8,7 @@
         <thead>
             <tr style="background: #eee;">
                 <th>Type</th>
+                <th>Plot_No.</th>
                 <th>Receipt_No.</th>
                 <th>R_Date</th>
                 <th>Next_Installment</th>
@@ -33,6 +34,7 @@
                     Installment
                     @endif
                 </td>
+                <td class="text-center">{{$data->plot_no}}</td>
                 <td>{{$data->receipt_format}}{{$data->receipt_no}}</td>
                 <td>{{$data->receipt_date}}</td>
                 <td>
