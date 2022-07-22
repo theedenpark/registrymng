@@ -56,13 +56,13 @@
                             <tbody id="khetContainer">
                                 <tr class="areaRow">
                                     <td>
-                                        <input type="number" class="formFields" min="0" name="basra_no[]" id="basra_no">
+                                        <input type="text" class="formFields" min="0" name="basra_no[]" id="basra_no">
                                     </td>
                                     <td>
-                                        <input name="khata_no[]" type="number" value="" class="formFields" />
+                                        <input name="khata_no[]" type="text" value="" class="formFields" />
                                     </td>
                                     <td>
-                                        <input name="khet_no[]" type="number" value="" class="formFields" />
+                                        <input name="khet_no[]" type="text" value="" class="formFields" />
                                     </td>
                                     <td class="text-center" width="100px">
                                         <div class="form-check">
@@ -72,7 +72,7 @@
                                         </div>
                                     </td>
                                     <td>
-                                        <input type="number" value="" class="formFields khetArea" autocomplete="off" />
+                                        <input type="text" value="" class="formFields khetArea" autocomplete="off" />
                                     </td>
                                     <td>
                                         <select class="form-select" id="changeUnit">
@@ -82,7 +82,7 @@
                                         </select>
                                     </td>
                                     <td>
-                                        <input type="number" class="formFields" name="khet_area[]" readonly value="00.00" style="background: #eee;" id="valueInSqft">
+                                        <input type="text" class="formFields" name="khet_area[]" readonly value="00.00" style="background: #eee;" id="valueInSqft">
                                     </td>
                                     <td class="text-center">
                                         <button type="button" class="btn btn-danger btn-floating shadow-none remove"><i class="fas fa-times"></i></button>

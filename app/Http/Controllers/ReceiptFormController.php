@@ -57,6 +57,7 @@ class ReceiptFormController extends Controller
                 'receipt_type' => $req->receipt_type,
                 'receipt_date' => $req->receipt_date,
                 'next_installment' => $req->next_installment,
+                'next_pay_status' => $req->next_pay_status,
                 'primary_customer' => $req->primary_customer,
                 'secondary_customer' => $req->secondary_customer,
                 'plot_no' => $req->plot_no,
@@ -199,5 +200,4 @@ class ReceiptFormController extends Controller
             }
         } 
     }
-
 }

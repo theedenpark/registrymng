@@ -13,7 +13,7 @@
                 </button>
             </div>
         </div>
-        <div class="myFormOverflow" style="border-top: 1px solid #ddd; display: none;">
+        <div class="myFormOverflow" style="border-top: 1px solid #ddd; display: ;">
             <form action="/addNewAcc" method="post" id="newAccForm" enctype="multipart/form-data">
                 @csrf
                 <div class="row m-0 py-4">
@@ -60,11 +60,11 @@
                         <label for="">PIN Code</label>
                         <input type="number" class="formFields" name="pin">
                     </div>
-                    <div class="col-md-12 mb-3">
+                    {{-- <div class="col-md-12 mb-3">
                         <label for="">Upload ID</label>
                         <input type="file" class="form-control" name="id_proof">
                         <p class="pt-2 text-danger" style="font-size: 12px;">Note: Image name must be 10-11 characters long.</p>
-                    </div>
+                    </div> --}}
                     <input type="text" value="4" name="user_type" style="display: none;">
                     <div class="col-md-3 mt-1">
                         <button class="btn btn-info btn-block shadow-none text-capitalize" id="addBtn" type="submit">Add New Buyer Account</button>

@@ -11,6 +11,7 @@
                 <th>Receipt_No.</th>
                 <th>R_Date</th>
                 <th>Next_Installment</th>
+                <th class="text-center">Next_Payment_status</th>
                 <th>Customer</th>
                 {{-- <th>Plot</th> --}}
                 <th>Phone</th>
@@ -41,16 +42,23 @@
                     @endphp
                     @if($cDate > $expiry)
                     {{-- if expired  --}}
-                        <font class="text-danger">
+                        <font class="text-dark">
                             {{ date("F j, Y", $expiry) }}
                         </font>
                     @else
                     {{-- if not expired  --}}
-                        <font class="text-success">
+                        <font class="text-danger">
                             {{ date("F j, Y", $expiry) }}
                         </font>
                     @endif
                     {{-- {{$data->next_installment}} --}}
+                </td>
+                <td class="text-center">
+                    @if ($data->next_pay_status == 0)
+                        <font class="text-danger">Pending</font>
+                    @elseif ($data->next_pay_status == 1)
+                        <font class="text-success">Paid</font>
+                    @endif
                 </td>
                 <td>
                     @if($data->secondary_customer != "") 

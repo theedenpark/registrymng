@@ -123,7 +123,7 @@ class PortalController extends Controller
 
     public function addNewProperty(Request $req)
     {
-        return $req;
+        // return $req;
         $path = "reg/purchased";
         $idProof = $req->file('reg_file');
         if($idProof == "")
@@ -141,18 +141,18 @@ class PortalController extends Controller
         $khata_no = $req->khata_no;
         $khet_no = $req->khet_no;
         $khet_area = $req->khet_area;
-        // $madhya = $req->madhya;
+        $madhya = $req->madhya;
         $seller_id = implode(', ', $req->seller_id);
         $witness_id = implode(', ', $req->witness_id);
         $pay_mode = implode(', ', $req->pay_mode);
         $pay_mode_amount = implode(', ', $req->pay_mode_amount);
         $transaction_id = implode(', ', $req->transaction_id);
 
-        if($req->has('madhya')){
-            $madhya = 1;
-        }else{
-            $madhya = 0;
-        }
+        // if($req->has('madhya')){
+        //     $madhya = 1;
+        // }else{
+        //     $madhya = 0;
+        // }
 
         foreach($khet_no as $key=>$insert)
         {
@@ -165,6 +165,7 @@ class PortalController extends Controller
                 'p_reg_no' => $req->reg_no
             ];
             DB::table('khet')->insert($dataset);
+            // print_r($dataset);
         }
 
         $dataImport = [
@@ -324,16 +325,18 @@ class PortalController extends Controller
 
     public function addNewAcc(Request $req)
     {
-        $path = "IndividualAccountID/";
-        // File::makeDirectory($path, $mode = 0777, true, true);
+        // $path = "IndividualAccountID/";
+        //
+        /// File::makeDirectory($path, $mode = 0777, true, true);
 
-        $idProof = $req->file('id_proof');
-        $extensionFS = $idProof->getClientOriginalName();
-        // $fileWithoutExtFS  = str_replace(".","",basename($idProof, $extensionFS));  
-        // $updated_ID = $fileWithoutExtFS."_".rand(0,99).".".$extensionFS;
+        // $idProof = $req->file('id_proof');
+        // $extensionFS = $idProof->getClientOriginalName();
+        //
+        /// $fileWithoutExtFS  = str_replace(".","",basename($idProof, $extensionFS));  
+        /// $updated_ID = $fileWithoutExtFS."_".rand(0,99).".".$extensionFS;
 
-        $newname = $req->username.$req->mobile.'.png';
-        $idProof_certificate = $idProof->move($path, $newname);
+        // $newname = $req->username.$req->mobile.'.png';
+        // $idProof_certificate = $idProof->move($path, $newname);
 
         $query = DB::table('individual_management')
                 ->insert([
@@ -349,7 +352,7 @@ class PortalController extends Controller
                     'pin'=>$req->pin,
                     'user_type'=>$req->user_type,
                     'user_status'=>1,
-                    'id_proof'=>$idProof_certificate
+                    // 'id_proof'=>$idProof_certificate
                 ]);
 
         if($query)

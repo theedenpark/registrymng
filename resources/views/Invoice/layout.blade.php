@@ -29,7 +29,7 @@
     <meta name="googlebot" content="noindex">
 
     {{-- Highlight  --}}
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="/invoice_assets/jquery.min.js"></script>
     <script src="https://johannburkard.de/resources/Johann/jquery.highlight-4.js"></script>
     
 </head>

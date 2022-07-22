@@ -1,10 +1,20 @@
 @extends('Invoice/Dashboard.index')
 
 @section('dashboardContent')
+
+{{-- Style  --}}
+<style>
+    label
+    {
+        font-size: 11px;
+    }
+</style>
+
 <!-- DatePicker  -->
 <link rel="stylesheet" href="//code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css">
 <script src="//code.jquery.com/ui/1.11.2/jquery-ui.js"></script>
 <script src="//code.jquery.com/jquery-1.10.2.js"></script>
+
 
 <div class="container col-md-9 py-4 px-2">
     <h3 class="text-dark"><i class="fa-solid fa-edit"></i>
@@ -19,19 +29,32 @@
         <form actionUrl="/receipt/all/edit/update" id="updateReceipt" method="post">
         @csrf
             <div class="row m-0 p-0">
-                <div class="col-md-4 p-2">
+                <div class="col-md-6 p-2">
                     <label for="">Receipt Type <font style="font-size: 10px;">(1=Booking, 2=Installment)</font></label>
                     <input type="text" class="form-control" value="{{$data->receipt_type}}" name="receipt_type">
                 </div>
-                <div class="col-md-3 p-2">
+                <div class="col-md-6 p-2">
                     <label for="">Receipt Date</label>
                     <input type="text" class="form-control" value="{{$data->receipt_date}}" name="receipt_date" id="datepicker" autocomplete="off" required>
                 </div>
-                <div class="col-md-3 p-2">
+                <div class="col-md-4 p-2">
                     <label for="">Next Installment Date</label>
                     <input type="text" class="form-control" value="{{$data->next_installment}}" name="next_installment" id="nextInstallment" autocomplete="off" required>
                 </div>
-                <div class="col-md-2 p-2">
+                <div class="col-md-4 p-2">
+                    <label for="">Next Payment Status <i class="fas fa-circle text-danger"></i> <i class="fas fa-circle text-success"></i></label>
+                    <select name="next_pay_status" id="" class="form-select" style="padding: 4px 10px;">
+                        <option disabled>Select Payment Status</option>
+                        @if ($data->next_pay_status == 0)
+                            <option value="0" selected class="text-danger" style="font-weight: 500;">Pending</option>
+                            <option value="1" class="text-success" style="font-weight: 500;">Paid</option>
+                        @elseif ($data->next_pay_status == 1)
+                            <option value="0" class="text-danger" style="font-weight: 500;">Pending</option>
+                            <option value="1" class="text-success" style="font-weight: 500;" selected>Paid</option>
+                        @endif
+                    </select>
+                </div>
+                <div class="col-md-4 p-2">
                     <label for="">Receipt No</label>
                     <input type="text" class="form-control" value="{{$data->receipt_no}}" readonly name="receipt_no">
                 </div>

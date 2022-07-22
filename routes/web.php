@@ -120,6 +120,8 @@ Route::prefix('/receipt')->group(function () {
     Route::post('/new/generate', [ReceiptFormController::class, 'generateReceipt']);
 
     Route::post('/all/edit/update', [ReceiptFormController::class, 'update']);
+    
+    // Route::post('/paymentStatusForm', [ReceiptFormController::class, 'paymentStatusForm']);
 
     Route::get('/receipts', [ReceiptFormController::class, 'receipts']);
 
