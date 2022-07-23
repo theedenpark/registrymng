@@ -61,7 +61,7 @@
                 <div>
                     <div class="d-flex justify-content-between align-items-center p-2 text-dark" style="cursor: pointer; border-bottom: 1px solid #eee; background: rgba(255, 255, 255, 0.8);" onclick="showDetails(this)">
                         <div style="font-size: 13px; font-weight: 600;">
-                            <i class="fa-solid fa-cube"></i> &nbsp;Plot No. {{$data->plot_no}}
+                            <i class="fa-solid fa-cube"></i> &nbsp;{{$data->phase}} - {{$data->plot_no}}
                         </div>
                         <div><i class="fa-solid fa-chevron-down"></i></div>
                     </div>
