@@ -178,7 +178,11 @@
 <script src='https://cdn.datatables.net/1.10.9/js/jquery.dataTables.min.js'></script>
 <script id="rendered-js" >
     $(document).ready(function () {
-        $('#myDataTable').DataTable({ order: [[2, 'desc']], });
+        $('#myDataTable').DataTable({ 
+            order: [[2, 'desc']], 
+            // pageLength : 1,
+            // lengthMenu: [[5, 10, 20, -1], [5, 10, 20, 'Todos']]
+        });
     });
 </script>
 @endsection

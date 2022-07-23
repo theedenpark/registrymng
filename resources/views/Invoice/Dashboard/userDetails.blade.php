@@ -59,111 +59,79 @@
 
                 @foreach ($userBookings as $data)
                 <div>
-                    <div class="d-flex justify-content-between align-items-center p-2 text-light" style="cursor: pointer; border-bottom: 1px solid #eee; background: rgba(0,0,0,0.8);" onclick="showDetails(this)">
-                        <div style="font-size: 13px; font-weight: 400;">
-                            <i class="fa-solid fa-cube"></i> {{$data->receipt_format}}{{$data->receipt_no}}
+                    <div class="d-flex justify-content-between align-items-center p-2 text-dark" style="cursor: pointer; border-bottom: 1px solid #eee; background: rgba(255, 255, 255, 0.8);" onclick="showDetails(this)">
+                        <div style="font-size: 13px; font-weight: 600;">
+                            <i class="fa-solid fa-cube"></i> &nbsp;Plot No. {{$data->plot_no}}
                         </div>
                         <div><i class="fa-solid fa-chevron-down"></i></div>
                     </div>
                     <!-- Collapsed content -->
-                    <div style="display: none;" class="p-2">
+                    <div style="display: none;" class="p-2 border bg-white pb-3">
                         @php
                             $id = $data->receipt_no;
                         @endphp
+                        <div class="row m-0">
                         @foreach ($allReceipts as $row)
                             {{-- Installment  --}}
                             @if($row->installment_for == $id)
-                            <div class="card p-2 mb-2 shadow-1" style="font-size: 13px;">
-                                <div class="font-weight-bold p-2">
-                                    {{$row->payment_desc}}
-                                </div>
-                                <table class="table table-sm table-striped table-borderless m-0">
-                                    <tr>
-                                        <th width="30%">Receipt No</th>
-                                        <td width="5%">:</td>
-                                        <td>{{$row->receipt_no}}</td>
-                                    </tr>
-                                    <tr>
-                                        <th>Customer Name</th>
-                                        <td>:</td>
-                                        <td>
-                                            @if ($row->secondary_customer != "")
-                                                {{$row->secondary_customer}}
-                                            @else
-                                                {{$row->primary_customer}}
+                            <div class="col-md-4">
+                                <div class="card rounded-4 shadow-8" style="background-image: url('/invoice_assets/images/receipt_bill.png'); background-size: contain; background-repeat: no-repeat; background-position: center; height: 218px; background-color: #fff;">
+                                    <div class="m-0 align-items-center justify-content-center rounded-4 text-dark" style="background: rgba(255, 255, 255, 0.55); backdrop-filter: blur(1px); height: 100%; display: flex; flex-direction: column;">
+                                        <div class="m-0">
+                                            @if ($row->receipt_type == 1)
+                                                <i class="fas fa-circle fa-sm text-danger"></i>&nbsp;   
+                                            @elseif ($row->receipt_type == 2)
+                                                <i class="fas fa-circle fa-sm text-success"></i>&nbsp;   
                                             @endif
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <th>Email</th><td>:</td><td>{{$row->email}}</td>
-                                    </tr>
-                                    <tr>
-                                        <th>Mobile</th><td>:</td><td>{{$row->mobile}}</td>
-                                    </tr>
-                                    <tr>
-                                        <th>Address</th><td>:</td><td>{{$row->address}}</td>
-                                    </tr>
-                                    <tr>
-                                        <th>Phase</th><td>:</td><td>{{$row->phase}}</td>
-                                    </tr>
-                                    <tr>
-                                        <th>Amount</th><td>:</td><td>₹{{$row->payment_amount}}</td>
-                                    </tr>
-                                    <tr>
-                                        <td colspan="100%">
-                                            <a href="/receipt/all/print?id={{$row->receipt_id}}" target="_blank" class="text-primary"><i class="fa-solid fa-download"></i> Download</a>
-                                        </td>
-                                    </tr>
-                                </table>
+                                            <font style="font-size: 13px; font-weight: 600; position: relative; top: -1px;">{{$row->receipt_format}}{{$row->receipt_no}}</font>
+                                        </div>
+                                        <div class="mt-2">
+                                            <a href="/receipt/all/print?id={{$row->receipt_id}}" target="_blank" class="text-primary">
+                                                <button class="btn btn-primary btn-floating btn-sm shadow-0">
+                                                    <i class="far fa-eye fa-sm"></i>
+                                                </button>
+                                            </a>
+                                            <a href="/receipt/all/print?id={{$row->receipt_id}}" target="_blank" class="text-primary">
+                                                <button class="btn btn-primary btn-floating btn-sm shadow-0">
+                                                    <i class="fas fa-download fa-sm"></i>
+                                                </button>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                             @endif
                             {{-- Booking  --}}
                             @if($row->receipt_no == $id)
-                            <div class="card p-2 mb-2 shadow-1" style="font-size: 13px;">
-                                <div class="font-weight-bold p-2">
-                                    {{$row->payment_desc}}
-                                </div>
-                                <table class="table table-sm table-striped table-borderless m-0">
-                                    <tr>
-                                        <th width="30%">Receipt No</th>
-                                        <td width="5%">:</td>
-                                        <td>{{$row->receipt_no}}</td>
-                                    </tr>
-                                    <tr>
-                                        <th>Customer Name</th>
-                                        <td>:</td>
-                                        <td>
-                                            @if ($row->secondary_customer != "")
-                                                {{$row->secondary_customer}}
-                                            @else
-                                                {{$row->primary_customer}}
+                            <div class="col-md-4">
+                                <div class="card rounded-4 shadow-8" style="background-image: url('/invoice_assets/images/receipt_bill.png'); background-size: contain; background-repeat: no-repeat; background-position: center; height: 218px; background-color: #fff;">
+                                    <div class="m-0 align-items-center justify-content-center rounded-4 text-dark" style="background: rgba(255, 255, 255, 0.55); backdrop-filter: blur(1px); height: 100%; display: flex; flex-direction: column;">
+                                        <div class="m-0">
+                                            @if ($row->receipt_type == 1)
+                                                <i class="fas fa-circle fa-sm text-danger"></i>&nbsp;   
+                                            @elseif ($row->receipt_type == 2)
+                                                <i class="fas fa-circle fa-sm text-success"></i>&nbsp;   
                                             @endif
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <th>Email</th><td>:</td><td>{{$row->email}}</td>
-                                    </tr>
-                                    <tr>
-                                        <th>Mobile</th><td>:</td><td>{{$row->mobile}}</td>
-                                    </tr>
-                                    <tr>
-                                        <th>Address</th><td>:</td><td>{{$row->address}}</td>
-                                    </tr>
-                                    <tr>
-                                        <th>Phase</th><td>:</td><td>{{$row->phase}}</td>
-                                    </tr>
-                                    <tr>
-                                        <th>Amount</th><td>:</td><td>₹{{$row->payment_amount}}</td>
-                                    </tr>
-                                    <tr>
-                                        <td colspan="100%">
-                                            <a href="/receipt/all/print?id={{$row->receipt_id}}" target="_blank" class="text-primary"><i class="fa-solid fa-download"></i> Download</a>
-                                        </td>
-                                    </tr>
-                                </table>
+                                            <font style="font-size: 13px; font-weight: 600; position: relative; top: -1px;">{{$row->receipt_format}}{{$row->receipt_no}}</font>
+                                        </div>
+                                        <div class="mt-2">
+                                            <a href="/receipt/all/print?id={{$row->receipt_id}}" target="_blank" class="text-primary">
+                                                <button class="btn btn-primary btn-floating btn-sm shadow-0">
+                                                    <i class="far fa-eye fa-sm"></i>
+                                                </button>
+                                            </a>
+                                            <a href="/receipt/all/print?id={{$row->receipt_id}}" target="_blank" class="text-primary">
+                                                <button class="btn btn-primary btn-floating btn-sm shadow-0">
+                                                    <i class="fas fa-download fa-sm"></i>
+                                                </button>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                             @endif
-                        @endforeach
+                            @endforeach
+                        </div>
                     </div>
                 </div>
                 @endforeach
