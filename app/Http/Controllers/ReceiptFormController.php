@@ -200,4 +200,25 @@ class ReceiptFormController extends Controller
             }
         } 
     }
+
+    public function getReceiptDetails(Request $req)
+    {
+        if(session()->has('InvoiceAdminID'))
+        {
+            $receipt_id = $_GET['id'];
+            $rec_data = DB::table('z_invoice_all')
+                        ->where('receipt_id', $receipt_id)
+                        ->get();
+            if($rec_data)
+            {
+                return view('Invoice/Dashboard.recDetails', [
+                    'rec_data' => $rec_data
+                    ]);
+            }
+            else
+            {
+                return false;
+            }
+        }
+    }
 }

@@ -128,6 +128,7 @@ Route::prefix('/receipt')->group(function () {
     Route::get('/checkPlotAvailability', [ReceiptFormController::class, 'checkPlotAvailability']);
     Route::get('/checkPlotUser', [ReceiptFormController::class, 'checkPlotUser']);
     Route::get('/getDetails', [ReceiptFormController::class, 'getDetails']);
+    Route::get('/getReceiptDetails', [ReceiptFormController::class, 'getReceiptDetails']);
 });
 
 Route::prefix('/employee')->group(function () {

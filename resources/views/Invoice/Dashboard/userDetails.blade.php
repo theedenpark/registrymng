@@ -63,10 +63,12 @@
                         <div style="font-size: 13px; font-weight: 600;">
                             <i class="fa-solid fa-cube"></i> &nbsp;{{$data->phase}} - {{$data->plot_no}}
                         </div>
-                        <div><i class="fa-solid fa-chevron-down"></i></div>
+                        <div>
+                            <i class="fa-solid fa-chevron-down"></i>&nbsp;
+                        </div>
                     </div>
                     <!-- Collapsed content -->
-                    <div style="display: none;" class="p-2 border bg-white pb-3">
+                    <div style="display: none; border-bottom: 1px solid #ddd;" class="p-2 bg-white pb-3">
                         @php
                             $id = $data->receipt_no;
                         @endphp
@@ -86,11 +88,9 @@
                                             <font style="font-size: 13px; font-weight: 600; position: relative; top: -1px;">{{$row->receipt_format}}{{$row->receipt_no}}</font>
                                         </div>
                                         <div class="mt-2">
-                                            <a href="/receipt/all/print?id={{$row->receipt_id}}" target="_blank" class="text-primary">
-                                                <button class="btn btn-primary btn-floating btn-sm shadow-0">
-                                                    <i class="far fa-eye fa-sm"></i>
-                                                </button>
-                                            </a>
+                                            <button class="btn btn-primary btn-floating btn-sm shadow-0" onclick="getReceiptDetails({{$row->receipt_id}})">
+                                                <i class="far fa-eye fa-sm"></i>
+                                            </button>
                                             <a href="/receipt/all/print?id={{$row->receipt_id}}" target="_blank" class="text-primary">
                                                 <button class="btn btn-primary btn-floating btn-sm shadow-0">
                                                     <i class="fas fa-download fa-sm"></i>
@@ -115,11 +115,9 @@
                                             <font style="font-size: 13px; font-weight: 600; position: relative; top: -1px;">{{$row->receipt_format}}{{$row->receipt_no}}</font>
                                         </div>
                                         <div class="mt-2">
-                                            <a href="/receipt/all/print?id={{$row->receipt_id}}" target="_blank" class="text-primary">
-                                                <button class="btn btn-primary btn-floating btn-sm shadow-0">
-                                                    <i class="far fa-eye fa-sm"></i>
-                                                </button>
-                                            </a>
+                                            <button class="btn btn-primary btn-floating btn-sm shadow-0" onclick="getReceiptDetails({{$row->receipt_id}})">
+                                                <i class="far fa-eye fa-sm"></i>
+                                            </button>
                                             <a href="/receipt/all/print?id={{$row->receipt_id}}" target="_blank" class="text-primary">
                                                 <button class="btn btn-primary btn-floating btn-sm shadow-0">
                                                     <i class="fas fa-download fa-sm"></i>
@@ -154,13 +152,15 @@
             </div>
             <div>Details</div>
         </div>
-        <div class="text-center mt-4">
-            <i class="fa-solid fa-user-circle fa-8x"></i>
-            <p class="pt-2 mb-0 text-dark font-weight-bold" style="font-size: 24px;">{{$user->primary_customer}}</p>
-        </div>
-        <div class="text-center">
-            <div style="font-size: 13px;" class="font-weight-bold">
-                ₹ {{number_format($userTotal)}} /- ( Total Paid )
+        <div id="recDetails">
+            <div class="text-center mt-4">
+                <i class="fa-solid fa-user-circle fa-8x"></i>
+                <p class="pt-2 mb-0 text-dark font-weight-bold" style="font-size: 24px;">{{$user->primary_customer}}</p>
+            </div>
+            <div class="text-center">
+                <div style="font-size: 13px;" class="font-weight-bold">
+                    ₹ {{number_format($userTotal)}} /- ( Total Paid )
+                </div>
             </div>
         </div>
     </div>

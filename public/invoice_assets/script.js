@@ -127,3 +127,20 @@ function searchChat(input)
 //     $(sn).siblings().slideToggle();
 //     $(sn).children().find('i').toggleClass('fa-chevron-down fa-chevron-up');
 // }
+
+function getReceiptDetails(id)
+{
+    $.ajax({
+        type: "GET",
+        url: '/receipt/getReceiptDetails',
+        data: {
+            id: id
+        },
+        success: function(response){
+            if(response != false)
+            {
+                $('#recDetails').html(response);
+            }
+        }
+    });
+}

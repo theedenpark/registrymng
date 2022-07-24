@@ -46,7 +46,7 @@
             </div>
             <div class="col-md-3 p-2">
                 <label for="">Next Installment Date</label>
-                <input type="text" name="next_installment" class="form-control" id="nextInstallment" autocomplete="off" required>
+                <input type="text" name="next_installment" class="form-control" id="nextInstallment" autocomplete="off">
             </div>
             <div class="col-md-6 p-2">
                 <label for="">Receipt No.</label>
