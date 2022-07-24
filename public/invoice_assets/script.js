@@ -120,14 +120,6 @@ function searchChat(input)
     $('.userChat').removeHighlight().highlight(search_term);
 }
 
-//collapse under chat
-// function showDetails(sn)
-// {
-//     // $(sn).parent().siblings().slideToggle();
-//     $(sn).siblings().slideToggle();
-//     $(sn).children().find('i').toggleClass('fa-chevron-down fa-chevron-up');
-// }
-
 function getReceiptDetails(id)
 {
     $.ajax({
