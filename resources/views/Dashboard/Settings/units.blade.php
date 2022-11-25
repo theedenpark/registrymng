@@ -25,7 +25,7 @@
     </div>
 
     <div class="card my-4 p-4" style="overflow-x: auto !important;">
-        <h4 class="pb-2">All Bank Users</h4>
+        <h4 class="pb-2">All Units</h4>
         <table class="table table-sm my-3" id="myDataTable">
             <thead>
                 <tr>
