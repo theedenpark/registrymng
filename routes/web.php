@@ -3,8 +3,6 @@
 use App\Http\Controllers\PortalController;
 use App\Http\Controllers\PortalDataController;
 use App\Http\Controllers\MailController;
-use App\Http\Controllers\InvoiceController;
-use App\Http\Controllers\ReceiptFormController;
 use App\Http\Controllers\EmployeeController;
 use App\Http\Controllers\EmployeeFormController;
 use App\Http\Controllers\UserLogin;
@@ -102,33 +100,6 @@ Route::prefix('/')->group(function () {
     /////// activity log ///////////
     Route::get('/activity-log', [PortalDataController::class, 'activityLog']);
     
-});
-
-Route::prefix('/receipt')->group(function () {
-    Route::get('/', [InvoiceController::class, 'Home']);
-    Route::post('/login', [InvoiceController::class, 'login']);
-
-    Route::get('/new', [InvoiceController::class, 'NewInvoice']);
-    Route::get('/all', [InvoiceController::class, 'all']);
-    Route::get('/customers', [InvoiceController::class, 'customers']);
-    Route::get('/all/print', [InvoiceController::class, 'print']);
-    Route::get('/all/edit', [InvoiceController::class, 'edit']);
-    Route::get('/profile', [InvoiceController::class, 'Profile']);
-    Route::get('/logout', [InvoiceController::class, 'logout']);
-
-    //form submission
-    Route::post('/new/generate', [ReceiptFormController::class, 'generateReceipt']);
-
-    Route::post('/all/edit/update', [ReceiptFormController::class, 'update']);
-    
-    // Route::post('/paymentStatusForm', [ReceiptFormController::class, 'paymentStatusForm']);
-
-    Route::get('/receipts', [ReceiptFormController::class, 'receipts']);
-
-    Route::get('/checkPlotAvailability', [ReceiptFormController::class, 'checkPlotAvailability']);
-    Route::get('/checkPlotUser', [ReceiptFormController::class, 'checkPlotUser']);
-    Route::get('/getDetails', [ReceiptFormController::class, 'getDetails']);
-    Route::get('/getReceiptDetails', [ReceiptFormController::class, 'getReceiptDetails']);
 });
 
 Route::prefix('/employee')->group(function () {
