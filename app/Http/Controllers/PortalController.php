@@ -186,6 +186,8 @@ class PortalController extends Controller
             "witness1_id" => $witness_id,
             "date_of_reg" => $req->date_of_reg,
             "reg_no" => $req->reg_no,
+            "jild_no" => $req->jild_no,
+            "page_no" => $req->page_no,
             "actual_value" => $req->actual_value,
             "reg_value" => $req->reg_value,
             "return_rate" => $req->return_rate,

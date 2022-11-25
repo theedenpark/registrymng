@@ -272,14 +272,22 @@
                 <div class="text-info px-4 py-2 bg-light">4. Other Information</div>
                 <div class="row m-0 p-4">
                     <div class="col-md-4 mb-3">
-                        <label for="">Date of Registry</label>
-                        <input type="date" class="formFields" name="date_of_reg">
-                    </div>
-                    <div class="col-md-4 mb-3">
                         <label for="">Registeration Number</label>
                         <input type="text" class="formFields" name="reg_no">
                     </div>
                     <div class="col-md-4 mb-3">
+                        <label for="">Jild No.</label>
+                        <input type="text" class="formFields" name="jild_no">
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <label for="">Pages (Ex: 10-50)</label>
+                        <input type="text" class="formFields" name="page_no">
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <label for="">Date of Registry</label>
+                        <input type="date" class="formFields" name="date_of_reg">
+                    </div>
+                    <div class="col-md-6 mb-3">
                         <label for="">Actual Value (₹)</label>
                         <input type="number" class="formFields" name="actual_value">
                     </div>
