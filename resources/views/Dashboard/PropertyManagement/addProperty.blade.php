@@ -451,7 +451,16 @@
 
     <!-- All Properties  -->
     <div class="card my-4 p-4" style="overflow-x: auto !important;">
-        <h5 class="m-0">All Added Properties</h5>
+        <div class="d-flex align-items-center justify-content-between">
+            <div>
+                <h5 class="m-0">All Added Properties</h5>
+            </div>
+            <div>
+                <button class="btn btn-light rounded-pill shadow-none px-3" onclick="listProps()" title="Reload List">
+                    <i class="fa-solid fa-arrow-rotate-right"></i>
+                </button>
+            </div>
+        </div>
         <div class="my-3" style="max-height: 63vh; overflow: auto;" id="listProps">
         </div>
     </div>
