@@ -25,7 +25,9 @@ function insert(elem)
                     $(elem).html($prevHtml);
                     $(elem).prop('disabled', false);
                     $form.trigger("reset");
-                    listProps();
+                    setTimeout(() => {
+                        listProps()
+                    }, 2000);
                 }
                 else
                 {
