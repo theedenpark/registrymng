@@ -20,7 +20,7 @@ $(document).ready(function(){
     
     $.getJSON(url, function (data) {
         stateDist = data;
-        $('#myStates').html();
+        $('#myStates').html('<option disabled selected>Select State</option>');
         for(var i=0; i < data['states'].length; i++)
         {
             $('#myStates').append('<option value="'+ data['states'][i]['state'] +'">' + data['states'][i]['state'] + '</option>')
@@ -29,7 +29,7 @@ $(document).ready(function(){
 
     $('#myStates').change(function(event) {
         
-        $('#myDistrict').html('');
+        $('#myDistrict').html('<option disabled selected>Select District</option>');
         for(var i=0; i < stateDist['states'].length; i++)
         {
             if($('#myStates').val() == stateDist['states'][i]['state']) {

@@ -74,6 +74,7 @@ label
 {
     color: rgb(161, 161, 161);
     margin-bottom: 7px;
+    font-size: 12px !important;
 }
 th, td, select, input, .dataTables_info, .myDataTable_paginate
 {

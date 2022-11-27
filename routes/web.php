@@ -5,6 +5,7 @@ use App\Http\Controllers\PortalDataController;
 use App\Http\Controllers\MailController;
 use App\Http\Controllers\EmployeeController;
 use App\Http\Controllers\EmployeeFormController;
+use App\Http\Controllers\PropertyController;
 use App\Http\Controllers\UserLogin;
 use Illuminate\Support\Facades\Route;
 
@@ -21,9 +22,14 @@ Route::prefix('/')->group(function () {
 
     ////////////////////////// Property Management ///////////////////////////
 
+    Route::get('/add-new-property', [PropertyController::class, 'addProperty']);
+    Route::get('/checkReg', [PropertyController::class, 'checkReg']);
+    Route::get('/individual', [PropertyController::class, 'individual']);
+    Route::post('/addMyProperty', [PropertyController::class, 'addMyProperty']);
+
+
     //Add or View Property
-    Route::get('/add-new-property', [PortalDataController::class, 'AddNewProp']);
-    Route::post('/addNewProperty', [PortalController::class, 'addNewProperty']);
+    // Route::get('/add-new-property', [PortalDataController::class, 'AddNewProp']);
     Route::get('/propDetails', [PortalDataController::class, 'propDetails']);
     
     //update Added registry

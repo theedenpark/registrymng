@@ -1,3 +1,40 @@
+function insert(elem)
+{
+    $prevHtml = $(elem).html();
+
+    $(elem).html('<div class="spinner-border text-light spinner-border-sm" role="status"><span class="visually-hidden"></span></div>');
+
+    // $(elem).prop('disabled', true);
+
+    $form =  $(elem).closest('form');
+    $url = $(elem).closest('form').attr('actionUrl');
+
+    $.ajax({
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        },
+        type: 'POST',
+        url: $url,
+        data: $form.serialize(),
+        // contentType: "multipart/form-data",
+        // processData: false,
+        // contentType: false,
+        success: function (res){
+            if(res == true)
+                {
+                    $(elem).html($prevHtml);
+                    $(elem).prop('disabled', false);
+                    $form.trigger("reset");
+                }
+                else
+                {
+                    $(elem).prop('disabled', false);
+                    $(elem).html('Retry');
+                }
+        }
+    });
+}
+
 
 // Login
 $("#loginForm").submit(function(e) {
