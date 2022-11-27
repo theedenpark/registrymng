@@ -25,6 +25,18 @@ class PropertyController extends Controller
         ]);
     }
 
+    public function listProps()
+    {
+        $allProperties = DB::table('properties')
+                        ->leftJoin('khet', 'properties.reg_no', '=', 'khet.p_reg_no')
+                        ->orderBy('properties.added_on', 'desc')
+                        ->get();
+
+        return view('Dashboard.PropertyManagement.allProperties', [
+            'allProperties' => $allProperties
+        ]);
+    }
+
     public function checkReg()
     {
         $reg_no = $_GET['reg_no'];

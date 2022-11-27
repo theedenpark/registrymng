@@ -24,6 +24,11 @@ body
     background: rgb(250, 250, 250);
 }
 
+.card
+{
+    border-radius: 18px !important;
+}
+
 .naviBar
 {
     background: #fff;
@@ -193,7 +198,7 @@ table.dataTable.no-footer
 
 .dataTables_length, .myDataTable_filter label, .dataTables_info, #myDataTable_paginate
 {
-    font-size: 11px !important;
+    font-size: 12px !important;
 }
 
 .dataTables_filter label input
@@ -205,7 +210,7 @@ table.dataTable.no-footer
 
 thead tr
 {
-    font-weight: 400 !important;
+    font-weight: 500 !important;
 }
 
 .paginate_button 
@@ -398,4 +403,10 @@ select
     border: 1px solid rgb(215, 215, 253);
     font-weight: 1000;
     color:rgb(82, 82, 82);
+}
+
+tbody, td, tfoot, th, thead, tr 
+{
+    border: none !important;
+    border-bottom: 1px solid #ddd !important;
 }

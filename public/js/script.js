@@ -1,6 +1,8 @@
 // Data Tables 
 $(function(){
-    $("#myDataTable").dataTable();
+    $("#myDataTable").dataTable({
+        "aaSorting": []
+    });
 });
  
 //active
@@ -221,7 +223,7 @@ $('.modalBg').click(function(){
     $('.result').html('<div class="p-5 text-center"><div class="spinner-border text-danger spinner-border-sm" role="status"><span class="visually-hidden"></span></div>&nbsp;Please wait...</div>');
 });
 
-function viewPropDetails(sn, basra, khet_no, khata_no, area)
+function viewPropDetails(sn)
 {
     $('.modalBg').show();
     $('.myModal').show();
@@ -229,12 +231,10 @@ function viewPropDetails(sn, basra, khet_no, khata_no, area)
         right: '0vw'
     });
 
-    var id = sn;
-
     $.ajax({
         type: "GET",
         url: '../propDetails',
-        data: {id: id, basra: basra, khet: khet_no, khata: khata_no, area: area},
+        data: {id: sn},
         success: function(response){
             $('.result').html(response);
         }

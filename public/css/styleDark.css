@@ -25,6 +25,11 @@ body
     background: rgb(61, 61, 61);
 }
 
+.card
+{
+    border-radius: 18px !important;
+}
+
 .bg-light
 {
     background: rgb(73, 95, 114) !important; 
@@ -218,19 +223,19 @@ table.dataTable.no-footer
 
 .dataTables_length, .myDataTable_filter label, .dataTables_info, #myDataTable_paginate
 {
-    font-size: 11px !important;
+    font-size: 12px !important;
 }
 
 .dataTables_filter label input
 {
-    font-size: 11px;
+    font-size: 12px;
     padding: 0;
     outline: none;
 }
 
 thead tr
 {
-    font-weight: 400 !important;
+    font-weight: 500 !important;
 }
 
 .paginate_button 

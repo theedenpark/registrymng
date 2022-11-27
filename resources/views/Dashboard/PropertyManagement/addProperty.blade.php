@@ -6,7 +6,7 @@
     <div class="card">
         <div class="d-flex align-items-center justify-content-between py-2 px-3">
             <div>
-                <h4 class="px-2 pt-3 pb-1">Add New Property</h4>
+                <h5 class="px-2 pt-3 pb-1">Add New Property</h5>
                 <p class="px-2 pb-0 mb-0" style="color: #aaa; font-size: 12px; position: relative; top: -10px;">Note:
                     All fileds are mandatory.</p>
             </div>
@@ -340,22 +340,22 @@
         
                         <div class="col-md-3 mb-3">
                             <label for="">Stamp Duty</label>
-                            <input type="number" class="formFields" value="100" name="stamp_duty">
+                            <input type="number" class="formFields" name="stamp_duty">
                         </div>
         
                         <div class="col-md-3 mb-3">
                             <label for="">Registration Fees</label>
-                            <input type="number" class="formFields" value="100" name="reg_fees">
+                            <input type="number" class="formFields" name="reg_fees">
                         </div>
         
                         <div class="col-md-3 mb-3">
                             <label for="">No. of Electronic Files</label>
-                            <input type="number" class="formFields" value="1" name="electronic_files">
+                            <input type="number" class="formFields" name="electronic_files">
                         </div>
         
                         <div class="col-md-3 mb-3">
                             <label for="">Electronic File Processing Fees</label>
-                            <input type="number" class="formFields" value="1" name="electronic_files_fee">
+                            <input type="number" class="formFields" name="electronic_files_fee">
                         </div>
         
                         <div class="col-md-12 mb-3">
@@ -451,49 +451,8 @@
 
     <!-- All Properties  -->
     <div class="card my-4 p-4" style="overflow-x: auto !important;">
-        <h4>All Added Properties</h4>
-        <div class="my-3" style="max-height: 63vh; overflow: auto;">
-            <table class="table table-responsive table-sm" style="font-size: 11px;" id="myDataTable">
-                <thead>
-                    <tr class="bg-light">
-                        <th>ID</th>
-                        <th>Property Name</th>
-                        <th>Seller</th>
-                        <th>Reg. Value</th>
-                        <th>Date of Registry</th>
-                        <th class="text-center">Registry</th>
-                        <th class="text-center">View</th>
-                    </tr>
-                </thead>
-                <tbody id="myTable">
-                    @foreach($allProperties as $prop)
-                    <tr class="text-capitalize" id="myRow">
-                        <td>{{$prop->reg_no}}/{{$prop->jild_no}}/{{$prop->page_no}}</td>
-                        <td>{{$prop->prop_name}}</td>
-                        <td>{{$prop->seller_id}}</td>
-                        <td>₹{{number_format($prop->reg_value)}}</td>
-                        <td>{{date('d-m-Y', strtotime($prop->date_of_reg))}}</td>
-                        <td class="text-center">
-                            @if($prop->reg_file == 0)
-                                <button class="btn btn-light btn-floating shadow-0 btn-sm" data-mdb-toggle="modal"
-                                    data-mdb-target="#exampleModal"
-                                    onclick="uploadMyRegBtn(this, `{{$prop->prop_id}}`, `{{$prop->prop_name}}`)">
-                                    <i class="fa-solid fa-arrow-up-from-bracket text-danger"></i>
-                                </button>
-                            @else
-                                <span class="badge bg-success" style="font-weight: 400 !important;">Available</span>
-                            @endif
-                        </td>
-                        <td class="text-center">
-                            <button class="btn btn-light btn-floating shadow-0 p-0 btn-sm" onclick="viewPropDetails(`{{$prop->prop_id}})">
-                                <i class="fas fa-eye p-0" style="font-size: 13px;"></i>
-                            </button>
-                        </td>
-                    </tr>
-                    @endforeach
-                </tbody>
-
-            </table>
+        <h5 class="m-0">All Added Properties</h5>
+        <div class="my-3" style="max-height: 63vh; overflow: auto;" id="listProps">
         </div>
     </div>
 
@@ -543,52 +502,8 @@
     </div>
 </div>
 
-<!-- Upload 143 Aggrement  -->
-<div class="modal fade" id="onefourthreeModal" tabindex="-1" aria-labelledby="onefourthreeModalLabel" aria-hidden="true">
-    <!-- <div class="modal fade show" id="onefourthreeModal" tabindex="-1" aria-labelledby="onefourthreeModalLabel" style="display: block;" aria-modal="true" role="dialog"> -->
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="onefourthreeModalLabel">Update Property Type (143 Aggrement)</h5>
-                <button type="button" class="btn-close" data-mdb-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <form action="/uploadoft" method="post" class="p-0 m-0" enctype="multipart/form-data">
-                @csrf
-                <div class="modal-body">
-                    <div class="mb-3">
-                        <label for="">Khet No.</label>
-                        <input type="text" id="khet_id" name="khet_id" style="display: none;">
-                        <input type="text" class="formFields" disabled id="khet">
-                    </div>
-                    <div class="mb-3">
-                        <label for="">Property Type (Now)</label>
-                        <select name="new_prop_type" id="" class="form-select">
-                            @foreach($allPropTypes as $propType)
-                            <option value="{{$propType->property_type}}">{{$propType->property_type}}</option>
-                            @endforeach
-                        </select>
-                    </div>
-                    <div class="mb-3">
-                        <label for="">Upload 143 Aggrement (Only PDF)</label>
-                        <input type="file" class="form-control" name="reg_file" accept=".pdf">
-                    </div>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn text-capitalize shadow-1 btn-light"
-                        data-mdb-dismiss="modal">Close</button>
-                    <button type="submit" class="btn text-capitalize shadow-1 btn-primary" onclick="$(this).html('Uploading...');"><i
-                            class="fa-solid fa-arrow-up-from-bracket fa-sm"></i>&nbsp; Upload</button>
-                </div>
-            </form>
-        </div>
-    </div>
-</div>
 
 <script>
-    $(document).ready(function(){
-
-    });
-
     function checkReg(page_no)
     {
         var reg_no = $('#reg_no').val();
@@ -631,6 +546,21 @@
         });
     }
 
+    function listProps()
+    {
+        $('#listProps').html('<div class="d-flex align-items-center"> <div> <div class="spinner-border text-primary spinner-border-sm" role="status"><span class="visually-hidden"></span></div> </div> <div class="px-2">Please wait...</div> </div>');
+        $.ajax({
+            url: '/listProps',
+            type: 'GET',
+            success: function (res){
+                $('#listProps').html(res);
+            }
+        });
+    }
+
+    $(document).ready(function(){
+        listProps();
+    });
 
 </script>
 

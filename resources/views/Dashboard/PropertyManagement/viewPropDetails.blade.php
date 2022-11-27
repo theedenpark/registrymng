@@ -4,24 +4,24 @@
         <div>
             <p class="p-0 m-0"><i class="fas fa-building"></i> &nbsp;Property Details</p>
         </div>
-        <div>
-            <h5 class="p-0 m-0"> Basra No: {{$_GET['basra']}} </h5>
-        </div>
+        {{-- <div>
+            <h5 class="p-0 m-0"> Basra No: {{$value->basra_no}} </h5>
+        </div> --}}
     </div>
     <div style="height: 90vh; overflow: auto;" class="p-3">
         <table class="table table-sm table-hover table-responsive" style="font-size: 12px;">
-            <tr class="text-danger">
+            {{-- <tr class="text-danger">
                 <td class="font-weight-bold">Khata Number</td>
                 <td>
-                    {{$_GET['khata']}}
+                    {{$value->khata_no}}
                 </td>
             </tr>
             <tr class="text-danger">
                 <td class="font-weight-bold">Khet Number</td>
                 <td>
-                    {{$_GET['khet']}}
+                    {{$value->khet_no}}
                 </td>
-            </tr>
+            </tr> --}}
             <tr>
                 <td class="font-weight-bold">Property Acquisation Status</td>
                 <td>{{$value->prop_acq_status}}</td>
@@ -42,10 +42,10 @@
                 <td class="font-weight-bold">Road Connectivity</td>
                 <td>{{$value->road_conn}}</td>
             </tr>
-            <tr class="text-danger">
+            {{-- <tr class="text-danger">
                 <td class="font-weight-bold">Khet Area</td>
                 <td>{{$_GET['area']}} Sq.ft.</td>
-            </tr>   
+            </tr>    --}}
             <tr>
                 <td class="font-weight-bold">Address</td>
                 <td>{{$value->p_village}}</td>

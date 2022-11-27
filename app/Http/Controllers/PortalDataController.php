@@ -9,9 +9,6 @@ class PortalDataController extends Controller
     //Add New Property
     public function AddNewProp()
     {
-        $allProperties = DB::table('properties')
-                        ->leftJoin('khet', 'properties.reg_no', '=', 'khet.p_reg_no')
-                        ->get();
         $allPropTypes = DB::table('property_type')
                         ->where('p_vlg', 1)
                         ->get();
@@ -61,7 +58,7 @@ class PortalDataController extends Controller
     {
         $id = $_GET['id'];
         $getPropDetails = DB::table('properties')
-                        ->where('properties.prop_id', $id)
+                        ->leftJoin('khet', 'properties.reg_no', '=', 'khet.p_reg_no')
                         ->get();
         if(session()->has('userId'))
         {

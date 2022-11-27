@@ -23,6 +23,7 @@ Route::prefix('/')->group(function () {
     ////////////////////////// Property Management ///////////////////////////
 
     Route::get('/add-new-property', [PropertyController::class, 'addProperty']);
+    Route::get('/listProps', [PropertyController::class, 'listProps']);
     Route::get('/checkReg', [PropertyController::class, 'checkReg']);
     Route::get('/individual', [PropertyController::class, 'individual']);
     Route::post('/addMyProperty', [PropertyController::class, 'addMyProperty']);
