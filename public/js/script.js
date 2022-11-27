@@ -1,9 +1,4 @@
-// Data Tables 
-$(function(){
-    $("#myDataTable").dataTable({
-        "aaSorting": []
-    });
-});
+
  
 //active
 $(function(){

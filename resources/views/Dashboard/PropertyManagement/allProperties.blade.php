@@ -41,4 +41,13 @@
     </tbody>
 </tbody>
 
+<script>
+    // Data Tables 
+$(function(){
+    $("#myDataTable").dataTable({
+        "aaSorting": []
+    });
+});
+</script>
+
 </table>
