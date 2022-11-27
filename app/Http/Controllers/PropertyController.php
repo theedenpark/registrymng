@@ -9,9 +9,6 @@ class PropertyController extends Controller
 {
     public function addProperty()
     {
-        $allProperties = DB::table('properties')
-                        ->get();
-
         $allPropTypes = DB::table('property_type')
                     ->where('p_vlg', 1)
                     ->get();
@@ -20,16 +17,14 @@ class PropertyController extends Controller
 
         return view('Dashboard.PropertyManagement.addProperty',[
             'allPropTypes' => $allPropTypes,
-            'allUnits' => $allUnits,
-            'allProperties' => $allProperties
+            'allUnits' => $allUnits
         ]);
     }
 
     public function listProps()
     {
         $allProperties = DB::table('properties')
-                        ->leftJoin('khet', 'properties.reg_no', '=', 'khet.p_reg_no')
-                        ->orderBy('properties.added_on', 'desc')
+                        ->orderBy('added_on', 'desc')
                         ->get();
 
         return view('Dashboard.PropertyManagement.allProperties', [
