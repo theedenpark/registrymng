@@ -1,4 +1,4 @@
-<table class="table table-responsive table-hover table-sm table-bordered" style="font-size: 11px;" id="myDataTable">
+<table class="table table-responsive table-hover table-sm" style="font-size: 11px;" id="myDataTable">
     <thead>
         <tr>
             <th>Village</th>
