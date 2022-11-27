@@ -11,6 +11,7 @@ class PropertyController extends Controller
     {
         $allPropTypes = DB::table('property_type')
                     ->where('p_vlg', 1)
+                    ->orderBy('property_type', 'asc')
                     ->get();
 
         $allUnits = DB::table('units')->get();
