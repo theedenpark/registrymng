@@ -17,7 +17,6 @@
             <td>{{$prop->p_village}}</td>
             <td>{{$prop->reg_no}}/{{$prop->jild_no}}/{{$prop->page_no}}</td>
             <td>{{$prop->prop_name}}</td>
-            {{-- <td>{{$prop->prop_acc}}</td> --}}
             <td>
                 <select name="" id="" class="form-control form-control-sm px-1 py-0" style="width: fit-content;" onchange="changeIndividual(this, `{{$prop->prop_id}}`)">
                     <option value="{{$prop->user_id}}" selected>{{$prop->username}}</option>
@@ -32,7 +31,22 @@
                 </select>
                 <span id="result" class="bg-none" style="font-size: 11px;"></span>
             </td>
-            <td>{{$prop->seller_id}}</td>
+
+            <td>
+                @php
+                    $seller = explode(', ', $prop->seller_id);
+                @endphp
+                @foreach ($seller as $value)
+                    @php
+                        $data = DB::table('individual_management')
+                                ->select('username', 'user_id')
+                                ->where('user_id', $value)
+                                ->first();
+                    @endphp
+                    {{$data->username}},&nbsp;
+                @endforeach
+            </td>
+
             <td>{{date('d-m-Y', strtotime($prop->date_of_reg))}}</td>
             <td class="text-center">
                 @if($prop->reg_file == 0)
