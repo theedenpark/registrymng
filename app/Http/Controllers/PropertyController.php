@@ -59,6 +59,7 @@ class PropertyController extends Controller
         $user_type = $_GET['user_type'];
         $q = DB::table('individual_management')
             ->where('user_type', $user_type)
+            ->orderBy('username', 'asc')
             ->get();
 
         return view('Dashboard.PropertyManagement.selectIndividual', [
