@@ -25,7 +25,8 @@ class PropertyController extends Controller
     public function listProps()
     {
         $allProperties = DB::table('properties')
-                        ->orderBy('added_on', 'desc')
+                        ->leftJoin('individual_management', 'properties.prop_acc', '=', 'individual_management.user_id')
+                        ->orderBy('properties.added_on', 'desc')
                         ->get();
 
         return view('Dashboard.PropertyManagement.allProperties', [
@@ -164,5 +165,26 @@ class PropertyController extends Controller
             return false;
         }
 
+    }
+
+    public function changeIndividual()
+    {
+        $prop_acc = $_GET['prop_acc'];
+        $prop_id = $_GET['prop_id'];
+
+        $q = DB::table('properties')
+            ->where('prop_id', $prop_id)
+            ->update([
+                'prop_acc' => $prop_acc
+            ]);
+
+        if($q)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
     }
 }

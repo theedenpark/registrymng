@@ -17,7 +17,21 @@
             <td>{{$prop->p_village}}</td>
             <td>{{$prop->reg_no}}/{{$prop->jild_no}}/{{$prop->page_no}}</td>
             <td>{{$prop->prop_name}}</td>
-            <td>{{$prop->prop_acc}}</td>
+            {{-- <td>{{$prop->prop_acc}}</td> --}}
+            <td>
+                <select name="" id="" class="form-control form-control-sm px-1 py-0" style="width: fit-content;" onchange="changeIndividual(this, `{{$prop->prop_id}}`)">
+                    <option value="{{$prop->user_id}}" selected>{{$prop->username}}</option>
+                    @php
+                        $prop_acc = DB::table('individual_management')
+                                    ->where('user_type', 1)
+                                    ->get();
+                    @endphp
+                    @foreach ($prop_acc as $account)
+                    <option value="{{$account->user_id}}">{{$account->username}}</option>
+                    @endforeach
+                </select>
+                <span id="result" class="bg-none" style="font-size: 11px;"></span>
+            </td>
             <td>{{$prop->seller_id}}</td>
             <td>{{date('d-m-Y', strtotime($prop->date_of_reg))}}</td>
             <td class="text-center">
@@ -48,6 +62,33 @@ $(function(){
         "aaSorting": []
     });
 });
+
+function changeIndividual(elem, prop_id)
+{
+    $(elem).parent().children('span').html('<span class="spinner-border text-danger spinner-border-sm" role="status"></span>');
+    $prop_acc = $(elem).val();
+    $.ajax({
+        type: 'GET',
+        url: '/changeIndividual',
+        data: {
+            'prop_acc' : $prop_acc,
+            'prop_id' : prop_id,
+        },
+        success: function(res)
+        {
+            if(res == true)
+            {
+                $(elem).parent().children('span').html('<span class="text-success">Changed</span>');
+            }
+            else
+            {
+                $(elem).parent().children('span').html('<span class="text-danger">Failed</span>');
+            }
+        }
+    });
+}
+
+
 </script>
 
 </table>

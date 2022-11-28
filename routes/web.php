@@ -27,6 +27,7 @@ Route::prefix('/')->group(function () {
     Route::get('/checkReg', [PropertyController::class, 'checkReg']);
     Route::get('/individual', [PropertyController::class, 'individual']);
     Route::post('/addMyProperty', [PropertyController::class, 'addMyProperty']);
+    Route::get('/changeIndividual', [PropertyController::class, 'changeIndividual']);
 
 
     //Add or View Property
