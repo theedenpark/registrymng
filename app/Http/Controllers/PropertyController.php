@@ -107,7 +107,7 @@ class PropertyController extends Controller
                 'khet_no' => $khet_no[$key],
                 'khet_area' => $khet_area[$key],
                 'madhya' => $madhya[$key],
-                'p_reg_no' => $req->reg_no
+                'p_reg_no' => $req->prop_name
             ];
             DB::table('khet')->insert($dataset);
         }
